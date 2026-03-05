@@ -1,0 +1,80 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 1rem 2rem;
+    background-color: rgb(209, 200, 149);
+    box-sizing: border-box;
+    height: 100px;
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 2rem;
+}
+
+ul li {
+    display: flex;
+    align-items: center;
+}
+
+.logo{
+    width: 250px;
+    height: auto;
+    margin-right: 2rem;
+}
+
+.logo:hover {
+    cursor: pointer;
+}
+
+.item-menu {
+    color: rgb(0, 0, 0);
+    border: none;
+}
+.item-menu:hover {
+    color: rgb(9, 105, 0);
+    cursor: pointer;
+}
+
+.btn-header {
+    background-color: rgb(9, 105, 0);
+    font-size: medium;
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    height: 75px;
+    width: auto;
+}
+
+.btn-header:hover {
+    background-color: rgb(5, 56, 0);
+    cursor: pointer;
+}
+
+.botao-chamada {
+    color: rgb(0, 0, 0);
+}
+
+.botao-chamada:hover {
+    color: rgb(9, 105, 0);
+    cursor: pointer;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
