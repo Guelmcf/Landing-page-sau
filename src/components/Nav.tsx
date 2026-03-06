@@ -7,6 +7,7 @@ function Header() {
             <img src={logosau} alt="logo" className="logo"/>
 
             <ul className="menu">
+                <li className="item-menu">Home</li>
                 <li className="item-menu">Quem somos</li>
                 <li className="item-menu">Como Funciona</li>
                 <li className="item-menu">Nossos Clientes</li>
