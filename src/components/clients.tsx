@@ -1,4 +1,4 @@
-function clientes() {
+function Clientes() {
     return (
         <div>
             <h1>Nossos Clientes</h1>
@@ -6,4 +6,4 @@ function clientes() {
     )
 }
 
-export default clientes;
+export default Clientes;

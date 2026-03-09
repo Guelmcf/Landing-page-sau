@@ -7,14 +7,24 @@ function Header() {
             <img src={logosau} alt="logo" className="logo"/>
 
             <ul className="menu">
-                <li className="item-menu">Home</li>
-                <li className="item-menu">Quem somos</li>
-                <li className="item-menu">Como Funciona</li>
-                <li className="item-menu">Nossos Clientes</li>
+                <li className="item-menu">
+                    <a id="home">Home</a>
+                </li>
+                <li className="item-menu">
+                    <a id="quem-somos">Quem somos</a>
+                </li>
+                <li className="item-menu">
+                    <a id="como-funciona">Como Funciona</a>
+                </li>
+                <li className="item-menu">
+                    <a id="nossos-clientes">Nossos Clientes</a>
+                </li>
             </ul>
 
             <div className="header-actions">
-                <h3 className="botao-chamada">(31) 99999-9999</h3>
+                <h3 className="botao-chamada">
+                    <a id="tel" href="tel:31999999999" className="item-menu">(31) 99999-9999</a>
+                    </h3>
                 <button 
                     className="btn-header"
                     onClick={() => console.log("clicou")}

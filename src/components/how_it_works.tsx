@@ -1,4 +1,4 @@
-function howItWorks() {
+function HowItWorks() {
     return (
         <div>
             <h1>Como Funciona</h1>
@@ -6,4 +6,4 @@ function howItWorks() {
     )
 }
 
-export default howItWorks;
+export default HowItWorks;

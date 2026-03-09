@@ -1,4 +1,4 @@
-function quemSomos() {
+function QuemSomos() {
     return (
         <div>
             <h1>Quem somos</h1>
@@ -6,4 +6,4 @@ function quemSomos() {
     )
 }
 
-export default quemSomos;
+export default QuemSomos;
