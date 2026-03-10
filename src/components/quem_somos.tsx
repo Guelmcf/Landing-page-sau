@@ -9,14 +9,7 @@ function QuemSomos() {
                 <div className="corpo-quem-somos">
                     <div className="conteudo-quem-somos">
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. <br />
-                        Dolorem consequatur id ab adipisci exercitationem soluta, <br />
-                        iusto corporis reiciendis blanditiis? Officiis sequi et voluptatibus <br />
-                        cum dolorem voluptas similique vitae dolores architecto? <br />
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. <br />
-                        Dolorem consequatur id ab adipisci exercitationem soluta, <br />
-                        iusto corporis reiciendis blanditiis? Officiis sequi et voluptatibus <br />
-                        cum dolorem voluptas similique vitae dolores architecto? <br />
+                    Comandada pelo Chef William Mendes, nossa operação é especializada na produção de refeições empresariais com padrão profissional de qualidade, organização e consistência. Atendemos empresas que buscam soluções confiáveis para alimentação diária de equipes, com processos estruturados, ingredientes selecionados e foco em eficiência operacional. Nosso compromisso é entregar refeições equilibradas, saborosas e pontuais, contribuindo diretamente para o bem-estar e a produtividade no ambiente de trabalho.
                     </p>
                 </div>
                 <div className="foto-quem-somos">

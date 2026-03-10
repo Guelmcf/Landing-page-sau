@@ -49,6 +49,13 @@
     justify-content: center;
 }
 
+.step:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-5px);
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(9, 105, 0, 0.15);
+}
+
 .step-title {
     font-size: 1.5rem;
     margin-bottom: 10px;

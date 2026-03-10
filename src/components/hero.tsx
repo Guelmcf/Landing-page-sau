@@ -10,8 +10,8 @@ function Hero() {
                     Alimentação pra sua Empresa <br />  
                     <span className='complicado'>Sem Complicação</span>
                     </h1> 
-                    <h3 className='subtitulo'>Fornecimento de marmitas pra sua empresa. <br />
-                    Praticidade,qualidade e economia <br /> 
+                    <h3 className='subtitulo'>Fornecimento de marmitas pra sua empresa,
+                    Praticidade,qualidade e economia 
                     sendo entregues diariamente ate você</h3>
                 <button className='btn-orçamento'>Pedir Orçamento</button>
                 <hr />
