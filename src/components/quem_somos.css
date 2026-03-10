@@ -17,11 +17,6 @@
     background-color: rgb(101, 119, 94);
     padding: 20px;
     border-radius: 50px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
 .conteudo-quem-somos {
