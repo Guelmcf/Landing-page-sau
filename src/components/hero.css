@@ -92,3 +92,43 @@ margin-left: 400px;
     color: rgb(255, 255, 255);
     margin-bottom: 20px;
 }
+
+hr {
+    border: none;
+    border-top: 2px solid rgb(255, 255, 255);
+    margin-top: 35px;
+}
+
+.infos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.lista-infos {
+    list-style: none;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    padding: 0;          
+    margin-top: 20px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;            
+    text-align: center;
+}
+
+.item-infos {
+    display: flex;
+    flex-direction: column;  
+    align-items: center;
+}
+
+.Titulo-li{
+    font-weight: bold;
+    font-size: 25px;
+    margin-right: 10px;
+    color: rgb(5, 61, 0);
+}

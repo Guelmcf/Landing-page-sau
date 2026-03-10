@@ -14,7 +14,20 @@ function Hero() {
                     Praticidade,qualidade e economia <br /> 
                     sendo entregues diariamente ate você</h3>
                 <button className='btn-orçamento'>Pedir Orçamento</button>
-                
+                <hr />
+                <div className='infos'>
+                    <ul className='lista-infos'>
+                        <li className='item-infos'>
+                            <h3 className='Titulo-li'>20 +</h3> 
+                            empresas Parceiras</li> 
+                        <li className='item-infos'>
+                            <h3 className='Titulo-li'>+ de 10.000</h3> 
+                            Refeições Entregues</li>
+                        <li className='item-infos'>
+                            <h3 className='Titulo-li'>90%</h3> 
+                            De Satisfação</li>
+                    </ul>
+                </div>
                 </div>
                     <div className='wrapper-img'>
                     <img src={foto_prato} alt="Foto do prato" className='fotoComida' />
