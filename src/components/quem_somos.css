@@ -1,0 +1,59 @@
+.container-quem-somos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: rgb(172, 179, 132);
+    min-height: 100vh;
+
+    width: 100%;
+    padding: 40px;
+}
+
+.titulo-quem-somos {
+    color: rgb(255, 255, 255);
+    font-style: oblique;
+    font-size: 2rem;
+    background-color: rgb(101, 119, 94);
+    padding: 20px;
+    border-radius: 50px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.conteudo-quem-somos {
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+    margin-top: 20px;
+    max-width: 800px;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.foto-quem-somos {
+    display: block;
+    margin-left: 200px;
+}
+
+.Chef {
+    width: auto;
+    height: 550px;
+    border: 10px solid rgb(9, 105, 0);
+    border-radius: 30px;
+}
+
+.corpo-quem-somos {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 60px;
+}

@@ -23,7 +23,7 @@ function Header() {
 
             <div className="header-actions">
                 <h3 className="botao-chamada">
-                    <a id="tel" href="tel:31999999999" className="item-menu">(31) 99999-9999</a>
+                    <a id="tel" href="tel:31999999999" className="item-menu">(31) 99232-5030</a>
                     </h3>
                 <button 
                     className="btn-header"
