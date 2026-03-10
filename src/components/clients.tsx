@@ -74,7 +74,7 @@ function Clientes() {
             {/* CARROSSEL */}
             <div className="carousel-section">
                 <button className="carousel-btn" onClick={prev} aria-label="Anterior">
-                    &#8592;
+                <span className='carrousel-btn-span'>&#8249;</span>
                 </button>
 
                 <div className="reviews-track">
@@ -99,7 +99,7 @@ function Clientes() {
                 </div>
 
                 <button className="carousel-btn" onClick={next} aria-label="Próximo">
-                    &#8594;
+                    <span className='carrousel-btn-span'>&#8250;</span> 
                 </button>
             </div>
 
