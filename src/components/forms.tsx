@@ -28,14 +28,44 @@ const [mealNumbers, setMealNumbers] = useState('')
     localStorage.setItem('enviou', 'true')
 }
     return (
-        <div>
-            <h1>Forms</h1>
+        <div className='forms-container'>
+            
+            <div>
+                <h3 className='Solicite'>Solicite Agora</h3>
+                <h2>Receba uma proposta personalizada</h2>
+                <p>Preencha o formulário e nossa equipe comercial entrará em contato com uma proposta exclusiva para sua empresa.</p>
+
+                <ul className='cto'>
+                    <div className='cto-item'>
+                     <span className='innerball'></span><li>Resposta Rapida</li>  
+                    </div>
+                    <div className='cto-item'>
+                     <span className='innerball'></span><li>Resposta Rapida</li>   
+                    </div>
+                    <div className='cto-item'>
+                     <span className='innerball'></span><li>Resposta Rapida</li>   
+                    </div>
+                </ul>
+
+                <div className='talk-direct'>
+                    <h3>Prefere Falar Diretamente?</h3>
+                    <p>Whatsapp: <span>(31) 99999-9999</span></p>
+                    <p>Email: <span>saurestaurante@gmail.com</span></p>
+                </div>
+            </div>
+            
             <div className='forms'>
-                <input type="text" name="Name" id="" value={name} onChange={(e) => setName(e.target.value)} />
-                <input type="text" name="Company" id="" value={company} onChange={(e) => setCompany(e.target.value)} />
-                <input type="email" name="Email" id="" value={email} onChange={(e) => setEmail(e.target.value)} />
-                <input type="tel" name="phone" id="" value={phone} onChange={(e) => setPhone(e.target.value)} />
-                <select name="meal-numbers" id="" value={mealNumbers} onChange={(e) => setMealNumbers(e.target.value)}>
+                Nome Completo*
+                <input type="text" name="Name" id="" value={name} onChange={(e) => setName(e.target.value)} placeholder='Seu Nome' className='cx-txt'/>
+                Empresa*
+                <input type="text" name="Company" id="" value={company} onChange={(e) => setCompany(e.target.value)} placeholder='Nome da Empresa' className='cx-txt'/>
+                Email*
+                <input type="email" name="Email" id="" value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Seu Email' className='cx-txt'/>
+                Telefone / Whatsapp*
+                <input type="tel" name="phone" id="" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder='(00) 00000-0000' className='cx-txt'/>
+                Numero de Refeições*
+                <select name="meal-numbers" id="" value={mealNumbers} onChange={(e) => setMealNumbers(e.target.value)} className='cx-txt'>
+                    <option value="">Selecione</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -43,7 +73,8 @@ const [mealNumbers, setMealNumbers] = useState('')
                     <option value="5">5</option>
                 </select>
 
-            <button onClick={() => handleSubmit()}>Submit</button>
+            <button onClick={() => handleSubmit()} className='Btn-forms'>Solicitar orçamento</button>
+            <p className='termofserice'>Ao enviar, você concorda com os termos e condições de uso.</p>
             </div>
         </div>
     )

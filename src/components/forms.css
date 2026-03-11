@@ -1,0 +1,102 @@
+.forms-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.forms {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    background-color: rgb(228, 228, 228);
+    padding: 50px;
+    border-radius: 20px;
+    border: 2px solid rgb(185, 185, 185);
+}
+
+.forms .cx-txt {
+    width: 350px;
+    height: 40px;
+    border-radius: 8px;
+    border: 1px solid rgb(185, 185, 185);
+    padding-left: 10px;
+}
+
+.forms .Btn-forms {
+    width: 350px;
+    height: 45px;
+    border-radius: 8px;
+    border: none;
+    background-color: rgb(34, 121, 0);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+
+}
+
+.termofserice {
+    font-size: 12px;
+    color: rgb(120, 120, 120);
+    margin-top: 10px;
+}
+
+.Solicite{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgb(228, 228, 228);
+    border-radius: 20px;
+    border: 2px solid rgb(185, 185, 185);
+
+    width: 150px;
+    padding: 10px;
+}
+
+.talk-direct{
+    display: flex;
+    flex-direction: column;
+    justify-content:left;
+    align-items: left;
+
+    background-color: rgb(34, 121, 0);
+    border-radius: 8px;
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+
+    width: 450px;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.cto{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+    gap: 10px;
+}
+
+.cto-item{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    gap: 10px;
+}
+
+.innerball{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgb(34, 121, 0);
+}
