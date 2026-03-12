@@ -117,6 +117,7 @@
 .cto-item-li{
     font-weight: bold;
     font-size: 15px;
+    list-style: none;
 }
 
 .cto-item-li-txt{

@@ -8,7 +8,6 @@
 
     min-height: 100vh;
     width: 100%;
-    padding: 40px;
 }
 
 .titulo-how-it-works {
@@ -86,7 +85,7 @@
     background-color: #ffffff;
     padding: 20px;
     border-radius: 20px;
-    width: 1500px;
+    width: 80%;
     height: 150px;
     display: flex;
     flex-direction: column;

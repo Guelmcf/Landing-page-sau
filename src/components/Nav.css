@@ -16,18 +16,13 @@ header {
     z-index: 1000;
 }
 
-ul {
+.menu {
     display: flex;
     gap: 2rem;
     list-style: none;
     margin: 0;
     padding: 0;
     gap: 2rem;
-}
-
-ul li {
-    display: flex;
-    align-items: center;
 }
 
 .logo{
