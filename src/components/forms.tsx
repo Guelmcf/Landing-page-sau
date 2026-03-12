@@ -91,11 +91,11 @@ const [mealNumbers, setMealNumbers] = useState('')
                 <label htmlFor="meal-numbers">Numero de Refeições*</label>
                 <select name="meal-numbers" id="meal-numbers" value={mealNumbers} onChange={(e) => setMealNumbers(e.target.value)} className='cx-txt'>
                     <option value="">Selecione</option>
-                    <option value="1">5-10 refeições</option>
-                    <option value="2">11-20 refeições</option>
-                    <option value="3">21-30 refeições</option>
-                    <option value="4">31-40 refeições</option>
-                    <option value="5">40+ refeições</option>
+                    <option value="5-10 marmitas">5-10 refeições</option>
+                    <option value="11-20 marmitas">11-20 refeições</option>
+                    <option value="21-30 marmitas">21-30 refeições</option>
+                    <option value="31-40 marmitas">31-40 refeições</option>
+                    <option value="40+ marmitas">40+ refeições</option>
                 </select>
 
             <button onClick={() => handleSubmit()} className='Btn-forms'>Solicitar orçamento</button>
