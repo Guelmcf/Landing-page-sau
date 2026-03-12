@@ -17,6 +17,12 @@ const [mealNumbers, setMealNumbers] = useState('')
         alert('Voce ja enviou o formulario, obrigado!')
         return
     }
+
+    if (!name.trim() || !company.trim() || !email.trim() || !phone.trim() || !mealNumbers.trim()) {
+        alert('Por favor, preencha todos os campos obrigatórios.')
+        return
+    }
+
     const data = {
         "nome": name,
         "empresa": company,
@@ -24,8 +30,14 @@ const [mealNumbers, setMealNumbers] = useState('')
         "numero": phone,
         "numeroRefeicoes": mealNumbers
     }
-    await emailjs.send(import.meta.env.VITE_EMAILJS_SERVICE_ID, import.meta.env.VITE_EMAILJS_TEMPLATE_ID, data, import.meta.env.VITE_EMAILJS_PUBLIC_KEY)
-    localStorage.setItem('enviou', 'true')
+    try {
+        await emailjs.send(import.meta.env.VITE_EMAILJS_SERVICE_ID, import.meta.env.VITE_EMAILJS_TEMPLATE_ID, data, import.meta.env.VITE_EMAILJS_PUBLIC_KEY)
+        localStorage.setItem('enviou', 'true')
+        alert('Formulário enviado com sucesso! Nossa equipe entrará em contato em breve.')
+    } catch (error) {
+        console.error('Error sending email:', error)
+        alert('Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.')
+    }
 }
     return (
         <div className='forms-container' id='formulario'>
@@ -37,27 +49,27 @@ const [mealNumbers, setMealNumbers] = useState('')
                 com uma proposta exclusiva para sua empresa.</p>
 
                 <ul className='cto'>
-                    <div className='cto-item'>
-                     <span className='innerball'></span>
-                        <div className='cto-item-txt'>
-                        <li className='cto-item-li'>Resposta Rapida</li>
-                        <p className='cto-item-li-txt'>Receba seu orçamento em até 24 horas</p> 
-                        </div>
-                    </div>
-                    <div className='cto-item'>
-                     <span className='innerball'></span>
-                        <div className='cto-item-txt'>
-                        <li className='cto-item-li'>Sem Compromisso</li>
-                        <p className='cto-item-li-txt'>Conheça nossa proposta sem obrigação </p> 
-                        </div>
-                    </div>
-                    <div className='cto-item'>
-                     <span className='innerball'></span>
-                        <div className='cto-item-txt'>
-                        <li className='cto-item-li'>Atendimento Premium</li>
-                        <p className='cto-item-li-txt'>Consultor dedicado a sua conta</p> 
-                        </div>
-                    </div>
+                        <li className='cto-item-li'>
+                            <div className='cto-item'><span className='innerball'></span>
+                            <div className='cto-item-txt'>Resposta Rapida
+                            <p className='cto-item-li-txt'>Receba seu orçamento em até 24 horas</p> 
+                            </div>
+                            </div>
+                        </li>
+                        <li className='cto-item-li'>
+                            <div className='cto-item'><span className='innerball'></span>
+                            <div className='cto-item-txt'>Sem Compromisso
+                            <p className='cto-item-li-txt'>Conheça nossa proposta sem obrigação</p> 
+                            </div>
+                            </div>
+                        </li>
+                        <li className='cto-item-li'>
+                            <div className='cto-item'><span className='innerball'></span>
+                            <div className='cto-item-txt'>Atendimento Premium
+                            <p className='cto-item-li-txt'>Consultor dedicado a sua conta</p> 
+                            </div>
+                            </div>
+                        </li>
                 </ul>
 
                 <div className='talk-direct'>
@@ -68,16 +80,16 @@ const [mealNumbers, setMealNumbers] = useState('')
             </div>
             
             <div className='forms'>
-                Nome Completo*
-                <input type="text" name="Name" id="" value={name} onChange={(e) => setName(e.target.value)} placeholder='Seu Nome' className='cx-txt'/>
-                Empresa*
-                <input type="text" name="Company" id="" value={company} onChange={(e) => setCompany(e.target.value)} placeholder='Nome da Empresa' className='cx-txt'/>
-                Email*
-                <input type="email" name="Email" id="" value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Seu Email' className='cx-txt'/>
-                Telefone / Whatsapp*
-                <input type="tel" name="phone" id="" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder='(00) 00000-0000' className='cx-txt'/>
-                Numero de Refeições*
-                <select name="meal-numbers" id="" value={mealNumbers} onChange={(e) => setMealNumbers(e.target.value)} className='cx-txt'>
+                <label htmlFor="name">Nome Completo*</label>
+                <input type="text" name="Name" id="name" value={name} onChange={(e) => setName(e.target.value)} placeholder='Seu Nome' className='cx-txt'/>
+                <label htmlFor="company">Empresa*</label>
+                <input type="text" name="Company" id="company" value={company} onChange={(e) => setCompany(e.target.value)} placeholder='Nome da Empresa' className='cx-txt'/>
+                <label htmlFor="email">Email*</label>
+                <input type="email" name="Email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Seu Email' className='cx-txt'/>
+                <label htmlFor="phone">Telefone / Whatsapp*</label>
+                <input type="tel" name="phone" id="phone" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder='(00) 00000-0000' className='cx-txt'/>
+                <label htmlFor="meal-numbers">Numero de Refeições*</label>
+                <select name="meal-numbers" id="meal-numbers" value={mealNumbers} onChange={(e) => setMealNumbers(e.target.value)} className='cx-txt'>
                     <option value="">Selecione</option>
                     <option value="1">5-10 refeições</option>
                     <option value="2">11-20 refeições</option>
