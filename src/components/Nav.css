@@ -7,6 +7,7 @@ header {
     background-color: rgb(209, 200, 149);
     box-sizing: border-box;
     height: 100px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
     
     position: fixed;
     top: 0;
@@ -44,6 +45,7 @@ ul li {
     border: none;
     text-decoration: none;
 }
+
 .item-menu:hover {
     color: rgb(9, 105, 0);
     cursor: pointer;
@@ -78,4 +80,16 @@ ul li {
     display: flex;
     align-items: center;
     gap: 1.5rem;
+}
+
+.item-menu-link{
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-weight: bold   ;
+    font-size: 18px;
+}
+
+.item-menu-link:hover {
+    color: rgb(9, 105, 0);
+    cursor: pointer;
 }

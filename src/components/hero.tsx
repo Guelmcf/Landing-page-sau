@@ -4,7 +4,7 @@ import right_symbol from "../assets/images/right_symbol.png"
 
 function Hero() {
     return(
-            <div className="container-hero">
+            <div className="container-hero" id='home'>
                 <div className='wrapper-txt'>
                     <h1 className='titulo'>
                     Alimentação pra sua Empresa <br />  
@@ -13,7 +13,9 @@ function Hero() {
                     <h3 className='subtitulo'>Fornecimento de marmitas pra sua empresa,
                     Praticidade,qualidade e economia 
                     sendo entregues diariamente ate você</h3>
-                <button className='btn-orçamento'>Pedir Orçamento</button>
+                <button className='btn-orçamento'
+                onClick={() => document.getElementById('formulario')?.scrollIntoView({ behavior: 'smooth' })}
+                >Pedir Orçamento</button>
                 <hr />
                 <div className='infos'>
                     <ul className='lista-infos'>

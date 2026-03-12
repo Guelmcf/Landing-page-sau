@@ -65,7 +65,7 @@ function Clientes() {
     const visible = [0, 1, 2].map((i) => reviews[(current + i) % reviews.length]);
 
     return (
-        <div className="clients-wrapper">
+        <div className="clients-wrapper" id='nossos-clientes'>
             <h1 className="clients-title">Empresas que confiam em nós</h1>
             <p className="clients-subtitle">
                 Dezenas de empresas já transformaram a alimentação de seus colaboradores

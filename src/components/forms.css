@@ -3,7 +3,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 85vh;
 }
 
 .forms {
@@ -26,6 +26,12 @@
     border: 1px solid rgb(185, 185, 185);
     padding-left: 10px;
 }
+
+.forms .cx-txt:focus {
+    outline: none;
+    border-color: rgb(34, 121, 0);
+    box-shadow: 0 0 5px rgba(34, 121, 0, 0.5);
+}   
 
 .forms .Btn-forms {
     width: 350px;
@@ -52,9 +58,9 @@
     justify-content: center;
     align-items: center;
 
-    background-color: rgb(228, 228, 228);
+    background-color: rgb(112, 173, 76);
     border-radius: 20px;
-    border: 2px solid rgb(185, 185, 185);
+    border: 2px solid rgb(35, 94, 23);
 
     width: 150px;
     padding: 10px;
@@ -66,10 +72,10 @@
     justify-content:left;
     align-items: left;
 
-    background-color: rgb(34, 121, 0);
+    background-color: rgb(235, 235, 235);
     border-radius: 8px;
-    border: none;
-    color: white;
+    border: 2px solid rgb(150, 150, 150);
+    color: rgb(0, 0, 0);
     font-weight: bold;
     cursor: pointer;
 
@@ -99,4 +105,41 @@
     height: 10px;
     border-radius: 50%;
     background-color: rgb(34, 121, 0);
+}
+
+.cto-item-txt{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+}
+
+.cto-item-li{
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.cto-item-li-txt{
+    font-size: 12px;
+    color: rgb(120, 120, 120);
+}
+
+.wrapper-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+    gap: 10px;
+    margin-right: 180px;
+}
+
+.zap{
+    color: rgb(34, 121, 0);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.txt-tlk{
+    color: rgb(34, 121, 0);
+    font-weight: bold;
 }

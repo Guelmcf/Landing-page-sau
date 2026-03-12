@@ -5,6 +5,7 @@ import QuemSomos from './components/quem_somos.tsx'
 import HowItWorks from './components/how_it_works.tsx'
 import Clientes from './components/clients.tsx'
 import Forms from './components/forms.tsx'
+import Footer from './components/footer.tsx'
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <HowItWorks />
       <Clientes />
       <Forms />
+      <Footer />
     </>
   )
 }

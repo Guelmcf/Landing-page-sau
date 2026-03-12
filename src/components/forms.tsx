@@ -28,29 +28,42 @@ const [mealNumbers, setMealNumbers] = useState('')
     localStorage.setItem('enviou', 'true')
 }
     return (
-        <div className='forms-container'>
+        <div className='forms-container' id='formulario'>
             
-            <div>
+            <div className='wrapper-text'>
                 <h3 className='Solicite'>Solicite Agora</h3>
                 <h2>Receba uma proposta personalizada</h2>
-                <p>Preencha o formulário e nossa equipe comercial entrará em contato com uma proposta exclusiva para sua empresa.</p>
+                <p>Preencha o formulário e nossa equipe comercial entrará em contato <br />
+                com uma proposta exclusiva para sua empresa.</p>
 
                 <ul className='cto'>
                     <div className='cto-item'>
-                     <span className='innerball'></span><li>Resposta Rapida</li>  
+                     <span className='innerball'></span>
+                        <div className='cto-item-txt'>
+                        <li className='cto-item-li'>Resposta Rapida</li>
+                        <p className='cto-item-li-txt'>Receba seu orçamento em até 24 horas</p> 
+                        </div>
                     </div>
                     <div className='cto-item'>
-                     <span className='innerball'></span><li>Resposta Rapida</li>   
+                     <span className='innerball'></span>
+                        <div className='cto-item-txt'>
+                        <li className='cto-item-li'>Sem Compromisso</li>
+                        <p className='cto-item-li-txt'>Conheça nossa proposta sem obrigação </p> 
+                        </div>
                     </div>
                     <div className='cto-item'>
-                     <span className='innerball'></span><li>Resposta Rapida</li>   
+                     <span className='innerball'></span>
+                        <div className='cto-item-txt'>
+                        <li className='cto-item-li'>Atendimento Premium</li>
+                        <p className='cto-item-li-txt'>Consultor dedicado a sua conta</p> 
+                        </div>
                     </div>
                 </ul>
 
                 <div className='talk-direct'>
                     <h3>Prefere Falar Diretamente?</h3>
-                    <p>Whatsapp: <span>(31) 99999-9999</span></p>
-                    <p>Email: <span>saurestaurante@gmail.com</span></p>
+                    <p>Whatsapp: <span className='txt-tlk'><a href="https://wa.me/5531992325030" target="_blank" rel="noopener noreferrer" className='zap'>(31) 99232-5030</a></span></p>
+                    <p>Email: <span className='txt-tlk'>saurestaurante@gmail.com</span></p>
                 </div>
             </div>
             
@@ -66,11 +79,11 @@ const [mealNumbers, setMealNumbers] = useState('')
                 Numero de Refeições*
                 <select name="meal-numbers" id="" value={mealNumbers} onChange={(e) => setMealNumbers(e.target.value)} className='cx-txt'>
                     <option value="">Selecione</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
+                    <option value="1">5-10 refeições</option>
+                    <option value="2">11-20 refeições</option>
+                    <option value="3">21-30 refeições</option>
+                    <option value="4">31-40 refeições</option>
+                    <option value="5">40+ refeições</option>
                 </select>
 
             <button onClick={() => handleSubmit()} className='Btn-forms'>Solicitar orçamento</button>

@@ -2,7 +2,7 @@ import "./how_it_works.css"
 
 function HowItWorks() {
     return (
-        <div className="how-it-works">
+        <div className="how-it-works" id="como-funciona">
             <h1 className="titulo-how-it-works">Como Funciona</h1>
             <h3 className="subtitulo">Em poucos passos sua empresa tera a melhor solução de alimentação do mercado</h3>
             <div className="steps">
