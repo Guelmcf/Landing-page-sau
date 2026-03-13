@@ -45,14 +45,12 @@ const reviews = [
 ];
 
 const clientes = [
-    { nome: 'Agatha Vigilância', inicial: 'AV', desde: '2021' },
-    { nome: 'Tech Solutions BH', inicial: 'TS', desde: '2022' },
-    { nome: 'Construtora Mendes', inicial: 'CM', desde: '2020' },
-    { nome: 'Lima Contabilidade', inicial: 'LC', desde: '2023' },
-    { nome: 'Grupo Oliveira', inicial: 'GO', desde: '2021' },
-    { nome: 'Farma Belo', inicial: 'FB', desde: '2022' },
-    { nome: 'Inova Tech', inicial: 'IT', desde: '2023' },
-    { nome: 'Sul Engenharia', inicial: 'SE', desde: '2019' },
+    { nome: 'Agatha Vigilância', inicial: 'AV', desde: '2024' },
+    { nome: 'Maximus Eventos', inicial: 'ME', desde: '2025' },
+    { nome: 'Bravo Cathering', inicial: 'BC', desde: '2023' },
+    { nome: 'Pomar Eventos', inicial: 'PE', desde: '2025' },
+    { nome: 'naSala Eventos', inicial: 'NS', desde: '2025' },
+    { nome: 'AllStar Tenders', inicial: 'AT', desde: '2024' },
 ];
 
 function Clientes() {
