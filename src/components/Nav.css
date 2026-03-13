@@ -4,7 +4,7 @@ header {
     justify-content: space-between;
 
     padding: 1rem 2rem;
-    background-color: rgb(209, 200, 149);
+    background-color: #e8f0e9;
     box-sizing: border-box;
     height: 100px;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
@@ -36,20 +36,20 @@ header {
 }
 
 .item-menu {
-    color: rgb(0, 0, 0);
+    color: 1a1a1a;
     border: none;
     text-decoration: none;
 }
 
 .item-menu:hover {
-    color: rgb(9, 105, 0);
+    color: #2d6b30;
     cursor: pointer;
 }
 
 .btn-header {
-    background-color: rgb(9, 105, 0);
+    background-color: #2d6b30;
     font-size: medium;
-    color: rgb(255, 255, 255);
+    color: #ffffff;
     border: none;
     padding: 0.5rem 1rem;
     border-radius: 10px;
@@ -58,16 +58,19 @@ header {
 }
 
 .btn-header:hover {
-    background-color: rgb(5, 56, 0);
+    background-color: #1e4620;
     cursor: pointer;
 }
 
 .botao-chamada {
-    color: rgb(0, 0, 0);
+    color: #1a1a1a;
+    font-weight: bold;
+    font-size: 18px;
+    text-decoration: none;
 }
 
 .botao-chamada:hover {
-    color: rgb(9, 105, 0);
+    color: #2d6b30;
     cursor: pointer;
 }
 
@@ -78,13 +81,13 @@ header {
 }
 
 .item-menu-link{
-    color: rgb(0, 0, 0);
+    color: #1a1a1a;
     text-decoration: none;
     font-weight: bold   ;
     font-size: 18px;
 }
 
 .item-menu-link:hover {
-    color: rgb(9, 105, 0);
+    color: #2d6b30;
     cursor: pointer;
 }
