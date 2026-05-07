@@ -1,0 +1,211 @@
+/* ================================================================
+   SAÚ Culinária — Design Tokens
+   Importe este arquivo UMA VEZ, no topo de index.css
+   ================================================================ */
+
+:root {
+
+  /* ── CORES BRUTAS (primitives) ──────────────────────────────
+     Não use diretamente nos componentes — use os tokens
+     semânticos abaixo. Estes são apenas os valores de referência.
+     ─────────────────────────────────────────────────────────── */
+
+  /* Verde Bosque */
+  --raw-green-950: #0D2410;
+  --raw-green-900: #152E18;
+  --raw-green-800: #1B4220;
+  --raw-green-700: #1E4620;
+  --raw-green-600: #2D6B30;
+  --raw-green-500: #3E8B42;
+  --raw-green-400: #5CA860;
+  --raw-green-300: #8FC990;
+  --raw-green-200: #B8DDB9;
+  --raw-green-100: #D9EED9;
+  --raw-green-50:  #EEF7EE;
+
+  /* Terra Cotta */
+  --raw-terra-800: #7A2E10;
+  --raw-terra-700: #9E4220;
+  --raw-terra-600: #B84E24;
+  --raw-terra-500: #C85A2A;
+  --raw-terra-400: #D97748;
+  --raw-terra-200: #F0C4A8;
+  --raw-terra-100: #FAE8DC;
+  --raw-terra-50:  #FEF5F0;
+
+  /* Stone (neutros quentes — não cinza frio) */
+  --raw-stone-950: #1C1917;
+  --raw-stone-900: #292524;
+  --raw-stone-800: #3D3733;
+  --raw-stone-700: #57534E;
+  --raw-stone-500: #78716C;
+  --raw-stone-400: #A8A29E;
+  --raw-stone-300: #C8C2BD;
+  --raw-stone-200: #E7E5E4;
+  --raw-stone-100: #F5F5F4;
+  --raw-stone-50:  #FAFAF9;
+
+
+  /* ── CORES SEMÂNTICAS (use estas nos componentes) ───────────
+     ─────────────────────────────────────────────────────────── */
+
+  /* Marca */
+  --color-brand:          var(--raw-green-600);   /* botões, links, acentos interativos */
+  --color-brand-dark:     var(--raw-green-700);   /* hover de botão, hero bg            */
+  --color-brand-deeper:   var(--raw-green-800);   /* footer bg, dark sections            */
+  --color-brand-light:    var(--raw-green-400);   /* hover em fundos escuros             */
+  --color-brand-muted:    var(--raw-green-200);   /* highlights sutis, badges            */
+  --color-brand-surface:  var(--raw-green-50);    /* fundo de seções claras              */
+
+  /* Acento */
+  --color-accent:         var(--raw-terra-500);   /* títulos de seção, bordas decorativas */
+  --color-accent-dark:    var(--raw-terra-700);   /* hover sobre elementos de acento      */
+  --color-accent-light:   var(--raw-terra-200);   /* tint sutil do acento                 */
+  --color-accent-surface: var(--raw-terra-50);    /* fundo quando acento é destaque       */
+
+  /* Texto */
+  --color-text-primary:     var(--raw-stone-950); /* corpo de texto principal             */
+  --color-text-secondary:   var(--raw-stone-700); /* textos de suporte, legendas          */
+  --color-text-muted:       var(--raw-stone-500); /* placeholders, helper text            */
+  --color-text-placeholder: var(--raw-stone-400); /* placeholder de input                 */
+  --color-text-inverted:    #ffffff;              /* texto sobre fundo escuro             */
+  --color-text-brand:       var(--raw-green-700); /* texto com cor da marca               */
+  --color-text-accent:      var(--raw-terra-600); /* texto com cor de acento              */
+
+  /* Fundos */
+  --color-bg-page:    #ffffff;                    /* página base                          */
+  --color-bg-subtle:  var(--raw-stone-50);        /* alternativa levíssima ao branco      */
+  --color-bg-section: var(--raw-green-50);        /* seções de fundo esverdeado           */
+  --color-bg-dark:    var(--raw-green-800);       /* seções escuras (hero, footer)        */
+  --color-bg-darker:  var(--raw-green-950);       /* footer base, máximo contraste        */
+
+  /* Bordas */
+  --color-border:        var(--raw-stone-200);    /* bordas neutras padrão                */
+  --color-border-strong: var(--raw-stone-300);    /* bordas com mais ênfase               */
+  --color-border-focus:  var(--color-brand);      /* ring de foco em inputs               */
+  --color-border-accent: var(--raw-terra-400);    /* bordas decorativas com acento        */
+
+  /* Feedback */
+  --color-success:    var(--raw-green-600);
+  --color-success-bg: var(--raw-green-50);
+  --color-error:      #C0392B;
+  --color-error-bg:   #FDECEA;
+  --color-warning:    #D97706;
+  --color-warning-bg: #FEF3C7;
+  --color-info:       #2563EB;
+  --color-info-bg:    #EFF6FF;
+
+
+  /* ── TIPOGRAFIA ─────────────────────────────────────────────
+     Fraunces  — headings: orgânico, artesanal, personalidade
+     DM Sans   — corpo: humanista, limpo, alta legibilidade
+     ─────────────────────────────────────────────────────────── */
+
+  --font-heading: 'Fraunces', Georgia, serif;
+  --font-body:    'DM Sans', system-ui, sans-serif;
+
+  /* Escala de tamanhos (proporção Major Third, base 16px) */
+  --text-xs:   0.75rem;    /* 12px — labels, badges           */
+  --text-sm:   0.875rem;   /* 14px — notas, helper text       */
+  --text-base: 1rem;       /* 16px — corpo padrão             */
+  --text-lg:   1.125rem;   /* 18px — corpo destacado          */
+  --text-xl:   1.25rem;    /* 20px — subtítulos pequenos      */
+  --text-2xl:  1.5rem;     /* 24px — subtítulos de seção      */
+  --text-3xl:  1.875rem;   /* 30px — títulos de seção         */
+  --text-4xl:  2.25rem;    /* 36px — headings principais      */
+  --text-5xl:  3rem;       /* 48px — hero heading             */
+  --text-6xl:  3.75rem;    /* 60px — hero heading grande      */
+
+  /* Pesos */
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+
+  /* Altura de linha */
+  --leading-none:    1;
+  --leading-tight:   1.2;
+  --leading-snug:    1.375;
+  --leading-normal:  1.5;
+  --leading-relaxed: 1.625;
+
+  /* Espaçamento entre letras */
+  --tracking-tight:   -0.02em;
+  --tracking-normal:   0em;
+  --tracking-wide:     0.04em;
+  --tracking-widest:   0.1em;
+
+
+  /* ── ESPAÇAMENTO (base 4px) ─────────────────────────────────
+     ─────────────────────────────────────────────────────────── */
+
+  --space-1:   4px;   /*  4px — gap mínimo, ícone + texto     */
+  --space-2:   8px;   /*  8px — padding interno de badge/tag  */
+  --space-3:  12px;   /* 12px — gap entre elementos inline    */
+  --space-4:  16px;   /* 16px — padding base de componente    */
+  --space-5:  24px;   /* 24px — gap entre itens de lista      */
+  --space-6:  32px;   /* 32px — padding de card               */
+  --space-7:  48px;   /* 48px — gap entre blocos              */
+  --space-8:  64px;   /* 64px — padding de seção (mobile)     */
+  --space-9:  96px;   /* 96px — padding de seção (desktop)    */
+  --space-10:128px;   /* 128px — respiro entre seções grandes */
+
+
+  /* ── FORMA (border-radius) ──────────────────────────────────
+     ─────────────────────────────────────────────────────────── */
+
+  --radius-sm:   4px;    /* inputs, tags                       */
+  --radius-md:   8px;    /* cards pequenos, botões secundários */
+  --radius-lg:   16px;   /* cards principais                   */
+  --radius-xl:   24px;   /* seções, containers destacados      */
+  --radius-2xl:  32px;   /* hero card, modal                   */
+  --radius-pill: 999px;  /* badges, botões pill                */
+  --radius-full: 50%;    /* avatares, ícones circulares        */
+
+
+  /* ── ELEVAÇÃO (sombras) ─────────────────────────────────────
+     ─────────────────────────────────────────────────────────── */
+
+  --shadow-xs:       0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-sm:       0 1px 3px rgba(0, 0, 0, 0.10),
+                     0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-md:       0 4px 8px rgba(0, 0, 0, 0.08),
+                     0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-lg:       0 10px 20px rgba(0, 0, 0, 0.08),
+                     0 4px 8px rgba(0, 0, 0, 0.04);
+  --shadow-xl:       0 20px 40px rgba(0, 0, 0, 0.10),
+                     0 8px 16px rgba(0, 0, 0, 0.05);
+
+  /* Sombras com cor da marca (para CTAs e cards destacados) */
+  --shadow-brand:    0 4px 16px rgba(45, 107, 48, 0.25);
+  --shadow-brand-lg: 0 8px 32px rgba(45, 107, 48, 0.30);
+  --shadow-accent:   0 4px 16px rgba(200, 90, 42, 0.20);
+
+
+  /* ── MOVIMENTO (transitions) ────────────────────────────────
+     ─────────────────────────────────────────────────────────── */
+
+  --duration-fast:   150ms;
+  --duration-base:   250ms;
+  --duration-slow:   400ms;
+
+  --ease-default: cubic-bezier(0.4, 0, 0.2, 1);   /* suave em/out */
+  --ease-out:     cubic-bezier(0, 0, 0.2, 1);      /* entrada rápida */
+  --ease-spring:  cubic-bezier(0.34, 1.56, 0.64, 1); /* leve bounce */
+
+  --transition-fast: var(--duration-fast) var(--ease-default);
+  --transition-base: var(--duration-base) var(--ease-default);
+  --transition-slow: var(--duration-slow) var(--ease-default);
+
+
+  /* ── LAYOUT ─────────────────────────────────────────────────
+     ─────────────────────────────────────────────────────────── */
+
+  --container-sm:  640px;
+  --container-md:  768px;
+  --container-lg:  1024px;
+  --container-xl:  1200px;
+  --container-2xl: 1400px;
+
+  --header-height: 80px;
+}
