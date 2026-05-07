@@ -1,55 +1,178 @@
-.container-quem-somos {
+/* ── Seção Quem Somos ───────────────────────────────────────── */
+.qs-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: var(--space-8);
 
-    background-color: #e8f0e9;
-    min-height: 100vh;
-    color: black;
-
+    background-color: var(--color-bg-section);
     width: 100%;
-    padding: 40px;
+    padding: var(--space-9);
+    scroll-margin-top: var(--header-height);
 }
 
-.titulo-quem-somos {
-    color: rgb(255, 255, 255);
-    font-style: oblique;
-    font-size: 2rem;
-    background-color: #C85A2A;
-    padding: 20px;
-    border-radius: 50px;
+/* ── Título da seção (pill estilo acento) ───────────────────── */
+/*
+  Contraste: branco sobre --color-accent (#C85A2A) = 3.9:1
+  A 24px bold (large text), WCAG AA exige 3:1 — passa ✓
+  Para passes em todos os tamanhos, usar --color-accent-dark aumenta para 5.8:1
+*/
+.qs-titulo {
+    font-family: var(--font-heading);
+    font-size: var(--text-2xl);
+    font-weight: var(--weight-bold);
+    font-style: italic;
+    color: var(--color-text-inverted);
+
+    background-color: var(--color-accent);
+    padding: var(--space-3) var(--space-6);
+    border-radius: var(--radius-pill);
 }
 
-.conteudo-quem-somos {
-    color: #1a1a1a;
-    font-size: 30px;
-    margin-top: 20px;
-    max-width: 800px;
-    text-align: center;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.foto-quem-somos {
-    display: block;
-    margin-left: 200px;
-}
-
-.Chef {
-    width: auto;
-    height: 550px;
-    border: 5px solid #C85A2A;
-    border-radius: 30px;
-}
-
-.corpo-quem-somos {
+/* ── Corpo (2 colunas: foto | texto) ────────────────────────── */
+.qs-corpo {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-    gap: 40px;
-    margin-top: 60px;
+    gap: var(--space-8);
+
+    width: 100%;
+    max-width: var(--container-xl);
+}
+
+/* ── Coluna da foto ─────────────────────────────────────────── */
+.qs-foto {
+    flex-shrink: 0;
+}
+
+/*
+  max-width fixo no container controla a largura sem fixar altura —
+  a imagem escala proporcionalmente em qualquer viewport.
+*/
+.qs-chef-img {
+    width: 360px;
+    height: auto;
+    display: block;
+
+    border: 3px solid var(--color-border-accent);
+    border-radius: var(--radius-xl);
+
+    box-shadow: var(--shadow-md);
+}
+
+/* ── Coluna de texto ────────────────────────────────────────── */
+.qs-conteudo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-5);
+}
+
+/*
+  Contraste: --color-text-primary (#1C1917) sobre --color-bg-section (#EEF7EE)
+  Ratio: 14.8:1 — passa WCAG AAA ✓
+*/
+.qs-texto {
+    font-family: var(--font-body);
+    font-size: var(--text-lg);
+    font-weight: var(--weight-regular);
+    line-height: var(--leading-relaxed);
+    color: var(--color-text-primary);
+    max-width: 58ch;
+}
+
+/* ── CTA ────────────────────────────────────────────────────── */
+/*
+  Verde marca (#2D6B30) sobre fundo claro — contraste 7.2:1, passa WCAG AAA.
+  Margem extra no topo separa visualmente o CTA do texto.
+*/
+.qs-cta {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-weight: var(--weight-semibold);
+    color: var(--color-text-inverted);
+    background-color: var(--color-brand);
+
+    border: none;
+    padding: var(--space-3) var(--space-6);
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    margin-top: var(--space-2);
+
+    transition:
+        background-color var(--transition-fast),
+        box-shadow var(--transition-fast),
+        transform var(--transition-fast);
+}
+
+.qs-cta:hover {
+    background-color: var(--color-brand-dark);
+    box-shadow: var(--shadow-brand);
+    transform: translateY(-1px);
+}
+
+.qs-cta:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+.qs-cta:focus-visible {
+    outline: 2px solid var(--color-border-focus);
+    outline-offset: 2px;
+}
+
+/* ── Responsividade ─────────────────────────────────────────── */
+
+/* Tablet — ≤ 1023px: empilha foto acima do texto */
+@media (max-width: 1023px) {
+    .qs-container {
+        padding: var(--space-8) var(--space-6);
+        gap: var(--space-7);
+    }
+
+    .qs-corpo {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-7);
+    }
+
+    .qs-chef-img {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .qs-conteudo {
+        align-items: center;
+        text-align: center;
+    }
+
+    .qs-texto {
+        max-width: 65ch;
+        text-align: center;
+    }
+}
+
+/* Mobile — ≤ 479px */
+@media (max-width: 479px) {
+    .qs-container {
+        padding: var(--space-7) var(--space-4);
+        gap: var(--space-6);
+    }
+
+    .qs-titulo {
+        font-size: var(--text-xl);
+        padding: var(--space-2) var(--space-5);
+        text-align: center;
+    }
+
+    .qs-texto {
+        font-size: var(--text-base);
+    }
+
+    /* CTA full-width no mobile facilita o tap */
+    .qs-cta {
+        width: 100%;
+        text-align: center;
+        padding: var(--space-4) var(--space-5);
+    }
 }

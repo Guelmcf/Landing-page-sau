@@ -1,37 +1,66 @@
+import { useState } from "react";
 import logosau from "../assets/images/logosau.png";
 import "./Nav.css";
 
 function Header() {
-    return( 
-        <header>
-            <img src={logosau} alt="logo" className="logo"/>
+    const [menuOpen, setMenuOpen] = useState(false);
 
-            <ul className="menu">
-                <li className="item-menu">
-                    <a href="#home" className="item-menu-link">Home</a>
-                </li>
-                <li className="item-menu">
-                    <a href="#como-funciona" className="item-menu-link">Como Funciona</a>
-                </li>
-                <li className="item-menu">
-                    <a href="#nossos-clientes" className="item-menu-link">Nossos Clientes</a>
-                </li>
-            </ul>
+    const closeMenu = () => setMenuOpen(false);
+
+    const scrollToForm = () => {
+        closeMenu();
+        document.getElementById('formulario')?.scrollIntoView({ behavior: 'smooth' });
+    };
+
+    return (
+        <header>
+            <a href="#home" className="logo-link" aria-label="Ir para o início">
+                <img src={logosau} alt="SAÚ Culinária" className="logo" />
+            </a>
+
+            <nav
+                className={`nav-menu${menuOpen ? ' nav-menu--open' : ''}`}
+                aria-label="Menu principal"
+            >
+                <ul className="menu" role="list">
+                    <li>
+                        <a href="#home" className="nav-link" onClick={closeMenu}>Home</a>
+                    </li>
+                    <li>
+                        <a href="#como-funciona" className="nav-link" onClick={closeMenu}>Como Funciona</a>
+                    </li>
+                    <li>
+                        <a href="#nossos-clientes" className="nav-link" onClick={closeMenu}>Nossos Clientes</a>
+                    </li>
+                </ul>
+            </nav>
 
             <div className="header-actions">
-                <h3 className="botao-chamada">
-                    <a id="tel"  href="https://wa.me/5531992325030" target="_blank" rel="noopener noreferrer" className="item-menu">(31) 99232-5030</a>
-                    </h3>
-                <button 
-                    className="btn-header"
-                    onClick={() => document.getElementById('formulario')?.scrollIntoView({ behavior: 'smooth' })}
+                <a
+                    href="https://wa.me/5531992325030"
+                    className="header-phone"
+                    target="_blank"
+                    rel="noopener noreferrer"
                 >
+                    (31) 99232-5030
+                </a>
+                <button className="btn-cta" onClick={scrollToForm}>
                     Solicitar orçamento
                 </button>
             </div>
 
+            <button
+                className={`nav-toggle${menuOpen ? ' nav-toggle--open' : ''}`}
+                aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
+                aria-expanded={menuOpen}
+                onClick={() => setMenuOpen(o => !o)}
+            >
+                <span />
+                <span />
+                <span />
+            </button>
         </header>
-    )
+    );
 }
 
 export default Header;

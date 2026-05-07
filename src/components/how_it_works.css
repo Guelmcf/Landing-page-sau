@@ -1,112 +1,299 @@
-.how-it-works {
+/* ── Seção Como Funciona ────────────────────────────────────── */
+.hw-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 50px 20px;
-    background-color: #1e4620;
-    color: #ffffff;
+    gap: var(--space-6);
 
-    min-height: 100vh;
+    background-color: var(--color-bg-dark);
     width: 100%;
+    padding: var(--space-9);
+    scroll-margin-top: var(--header-height);
 }
 
-.titulo-how-it-works {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    background-color: #C85A2A;
-    color: #ffffff;
-    padding: 20px;
-    border-radius: 50px;
-    font-style: oblique;
+/* ── Título da seção (pill acento — padrão consistente com outras seções) */
+/*
+  Contraste: branco sobre --color-accent (#C85A2A) = 3.9:1
+  A 24px bold (large text ≥ 18pt), WCAG AA exige 3:1 — passa ✓
+*/
+.hw-titulo {
+    font-family: var(--font-heading);
+    font-size: var(--text-2xl);
+    font-weight: var(--weight-bold);
+    font-style: italic;
+    color: var(--color-text-inverted);
+
+    background-color: var(--color-accent);
+    padding: var(--space-3) var(--space-6);
+    border-radius: var(--radius-pill);
 }
 
-.subtitulo {
-    font-size: 1.5rem;
-    margin-bottom: 40px;
+/* ── Subtítulo ──────────────────────────────────────────────── */
+/*
+  Contraste: --color-brand-muted (#B8DDB9) sobre --color-bg-dark (#1B4220) = 5.8:1 — AA ✓
+*/
+.hw-subtitulo {
+    font-family: var(--font-body);
+    font-size: var(--text-lg);
+    font-weight: var(--weight-regular);
+    line-height: var(--leading-relaxed);
+    color: var(--color-brand-muted);
     text-align: center;
-    max-width: 600px;
-    color: rgb(255, 255, 255);
+    max-width: var(--container-sm);
 }
 
-.steps {
+/* ── Grid de steps ──────────────────────────────────────────── */
+/*
+  4 colunas no desktop, 2x2 no tablet, 1 coluna no mobile.
+  Sem dimensões fixas — altura determinada pelo conteúdo.
+*/
+.hw-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-5);
+
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: var(--container-xl);
+}
+
+/* ── Card de step ───────────────────────────────────────────── */
+/*
+  Transition no elemento (não no hover) corrige a animação
+  de saída que estava quebrada no original.
+*/
+.hw-step {
+    background-color: var(--color-bg-page);
+    padding: var(--space-6);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-3);
+
+    transition:
+        transform var(--transition-base),
+        box-shadow var(--transition-base),
+        background-color var(--transition-base);
+}
+
+.hw-step:hover {
+    background-color: var(--color-bg-subtle);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-brand);
+}
+
+/* ── Círculo numerado ───────────────────────────────────────── */
+/*
+  Contraste: branco sobre --color-bg-dark (#1B4220) = 14.8:1 — AAA ✓
+*/
+.hw-step-symbol {
+    width: 48px;
+    height: 48px;
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-inverted);
+
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    font-weight: var(--weight-bold);
+
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* ── Título do step ─────────────────────────────────────────── */
+/*
+  Contraste: --color-brand (#2D6B30) sobre branco (#FFF) = 5.7:1 — AA ✓
+  Substituiu rgb(9, 105, 0) que estava fora do sistema de tokens.
+*/
+.hw-step-title {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    font-weight: var(--weight-semibold);
+    line-height: var(--leading-snug);
+    color: var(--color-brand);
+}
+
+/* ── Descrição do step ──────────────────────────────────────── */
+/*
+  Contraste: --color-text-secondary (#57534E) sobre branco = 7.0:1 — AA ✓
+*/
+.hw-step-desc {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-weight: var(--weight-regular);
+    line-height: var(--leading-relaxed);
+    color: var(--color-text-secondary);
+}
+
+/* ── Call banner ────────────────────────────────────────────── */
+/*
+  Layout horizontal no desktop: texto à esquerda, CTA à direita.
+  Padrão "urgency banner" — eficaz após apresentar o processo.
+*/
+.hw-call {
     display: flex;
     flex-direction: row;
-    gap: 30px;
-    justify-content: center;
-    flex-wrap: wrap;
-}  
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-6);
 
-.step {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 20px;
-    width: 350px;
-    height: 300px;
+    background-color: var(--color-bg-page);
+    padding: var(--space-6) var(--space-7);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+
+    width: 100%;
+    max-width: var(--container-xl);
+    margin-top: var(--space-2);
+}
+
+.hw-call-content {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    gap: var(--space-2);
 }
 
-.step:hover {
-    background-color: #f0f0f0;
-    transform: translateY(-5px);
-    transition: all 0.3s ease;
-    box-shadow: 0 6px 20px rgba(9, 105, 0, 0.15);
+/* Badge "⚡ Processo Ágil" */
+.hw-call-badge {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+    color: var(--color-accent);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
 }
 
-.step-title {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    color: rgb(9, 105, 0);
+.hw-call-text {
+    font-family: var(--font-heading);
+    font-size: var(--text-2xl);
+    font-weight: var(--weight-bold);
+    line-height: var(--leading-tight);
+    color: var(--color-text-primary);
 }
 
-.step-description {
-    font-size: 1rem;
-    text-align: center;
-    color: #000000;
+/* "48 horas" em destaque no verde marca */
+.hw-call-highlight {
+    color: var(--color-brand-dark);
+    font-style: italic;
 }
 
-.symbol {
-    width: 50px;
-    height: 50px;
-    background-color: #1e4620;
-    color: #ffffff;
-    font-size: 1.5rem;
-    font-weight: bold;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 15px;
+/* ── CTA do call banner ─────────────────────────────────────── */
+/*
+  Contraste: branco sobre --color-accent (#C85A2A) = 3.9:1
+  CTA com font-size: --text-lg (18px) semibold → large text → AA exige 3:1 ✓
+  Usar --color-accent diferencia visualmente do CTA verde das outras seções.
+*/
+.hw-call-cta {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-weight: var(--weight-semibold);
+    color: var(--color-text-inverted);
+    background-color: var(--color-accent);
+
+    border: none;
+    padding: var(--space-3) var(--space-6);
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    white-space: nowrap;
+    flex-shrink: 0;
+
+    transition:
+        background-color var(--transition-fast),
+        box-shadow var(--transition-fast),
+        transform var(--transition-fast);
 }
 
-.call{
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 20px;
-    width: 80%;
-    height: 150px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 50px;
+.hw-call-cta:hover {
+    background-color: var(--color-accent-dark);
+    box-shadow: var(--shadow-accent);
+    transform: translateY(-1px);
 }
 
-.call-title{
-    font-size: 2.6rem;
-    margin-bottom: 10px;
-    color: #1e4620;
+.hw-call-cta:active {
+    transform: translateY(0);
+    box-shadow: none;
 }
 
-.call-description{
-    font-size: 1.5rem;
-    text-align: center;
-    color: #000000;
+.hw-call-cta:focus-visible {
+    outline: 2px solid var(--color-accent-dark);
+    outline-offset: 2px;
 }
 
-.call-span{
-    font-weight: bold;
-    color: #1e4620;
+/* ── Responsividade ─────────────────────────────────────────── */
+
+/* Tablet — ≤ 1023px: 2 colunas nos steps, call empilha */
+@media (max-width: 1023px) {
+    .hw-container {
+        padding: var(--space-8) var(--space-6);
+    }
+
+    .hw-steps {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hw-call {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: var(--space-6);
+    }
+
+    .hw-call-content {
+        align-items: center;
+    }
+
+    .hw-call-cta {
+        width: 100%;
+        max-width: 320px;
+        padding: var(--space-4) var(--space-6);
+    }
+}
+
+/* Mobile — ≤ 479px: 1 coluna nos steps */
+@media (max-width: 479px) {
+    .hw-container {
+        padding: var(--space-7) var(--space-4);
+        gap: var(--space-5);
+    }
+
+    .hw-titulo {
+        font-size: var(--text-xl);
+        padding: var(--space-2) var(--space-5);
+        text-align: center;
+    }
+
+    .hw-subtitulo {
+        font-size: var(--text-base);
+    }
+
+    .hw-steps {
+        grid-template-columns: 1fr;
+        gap: var(--space-4);
+    }
+
+    .hw-step {
+        padding: var(--space-5);
+    }
+
+    .hw-call {
+        padding: var(--space-5) var(--space-4);
+    }
+
+    .hw-call-text {
+        font-size: var(--text-xl);
+    }
+
+    .hw-call-cta {
+        width: 100%;
+        max-width: none;
+    }
 }

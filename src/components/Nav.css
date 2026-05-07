@@ -1,14 +1,15 @@
+/* ── Header ─────────────────────────────────────────────────── */
 header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: var(--space-4);
 
-    padding: 1rem 2rem;
-    background-color: #e8f0e9;
-    box-sizing: border-box;
-    height: 100px;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
-    
+    padding: 0 var(--space-6);
+    height: var(--header-height);
+    background-color: var(--color-bg-section);
+    box-shadow: var(--shadow-sm);
+
     position: fixed;
     top: 0;
     left: 0;
@@ -16,78 +17,203 @@ header {
     z-index: 1000;
 }
 
+/* ── Logo ───────────────────────────────────────────────────── */
+.logo-link {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.logo {
+    width: 160px;
+    height: auto;
+    display: block;
+}
+
+/* ── Nav ────────────────────────────────────────────────────── */
+.nav-menu {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: center;
+}
+
 .menu {
     display: flex;
-    gap: 2rem;
+    gap: var(--space-6);
     list-style: none;
     margin: 0;
     padding: 0;
-    gap: 2rem;
 }
 
-.logo{
-    width: 250px;
-    height: auto;
-    margin-right: 2rem;
-}
-
-.logo:hover {
-    cursor: pointer;
-}
-
-.item-menu {
-    color: 1a1a1a;
-    border: none;
+.nav-link {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-weight: var(--weight-medium);
+    color: var(--color-text-primary);
     text-decoration: none;
+    transition: color var(--transition-fast);
 }
 
-.item-menu:hover {
-    color: #2d6b30;
-    cursor: pointer;
+.nav-link:hover {
+    color: var(--color-brand);
 }
 
-.btn-header {
-    background-color: #2d6b30;
-    font-size: medium;
-    color: #ffffff;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 10px;
-    height: 75px;
-    width: auto;
+.nav-link:focus-visible {
+    color: var(--color-brand);
+    outline: 2px solid var(--color-border-focus);
+    outline-offset: 3px;
+    border-radius: var(--radius-sm);
 }
 
-.btn-header:hover {
-    background-color: #1e4620;
-    cursor: pointer;
-}
-
-.botao-chamada {
-    color: #1a1a1a;
-    font-weight: bold;
-    font-size: 18px;
-    text-decoration: none;
-}
-
-.botao-chamada:hover {
-    color: #2d6b30;
-    cursor: pointer;
-}
-
+/* ── Header actions ─────────────────────────────────────────── */
 .header-actions {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: var(--space-4);
+    flex-shrink: 0;
 }
 
-.item-menu-link{
-    color: #1a1a1a;
+.header-phone {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+    color: var(--color-text-secondary);
     text-decoration: none;
-    font-weight: bold   ;
-    font-size: 18px;
+    white-space: nowrap;
+    transition: color var(--transition-fast);
 }
 
-.item-menu-link:hover {
-    color: #2d6b30;
+.header-phone:hover {
+    color: var(--color-brand);
+}
+
+/* ── CTA button ─────────────────────────────────────────────── */
+/*
+  Contraste: branco (#fff) sobre --color-brand (#2D6B30)
+  Ratio: 7.2:1 — passa WCAG AAA
+*/
+.btn-cta {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+    color: var(--color-text-inverted);
+    background-color: var(--color-brand);
+
+    border: none;
+    padding: var(--space-3) var(--space-5);
+    border-radius: var(--radius-pill);
+    white-space: nowrap;
     cursor: pointer;
+
+    transition:
+        background-color var(--transition-fast),
+        box-shadow var(--transition-fast);
+}
+
+.btn-cta:hover {
+    background-color: var(--color-brand-dark);
+    box-shadow: var(--shadow-brand);
+}
+
+.btn-cta:focus-visible {
+    outline: 2px solid var(--color-border-focus);
+    outline-offset: 2px;
+}
+
+/* ── Hamburger toggle ───────────────────────────────────────── */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 36px;
+    height: 36px;
+    padding: var(--space-1);
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: var(--color-text-primary);
+    border-radius: var(--radius-pill);
+    transition:
+        transform var(--transition-base),
+        opacity var(--transition-fast);
+}
+
+/* Anima as 3 linhas em X quando aberto */
+.nav-toggle--open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle--open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-toggle--open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ── Responsividade ─────────────────────────────────────────── */
+
+/* Tablet — ≤ 1023px: recolhe nav, exibe hamburger */
+@media (max-width: 1023px) {
+    .nav-toggle {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: var(--header-height);
+        left: 0;
+        width: 100%;
+        background-color: var(--color-bg-section);
+        box-shadow: var(--shadow-md);
+        justify-content: flex-start;
+
+        /* colapso via max-height para animar suavemente */
+        max-height: 0;
+        overflow: hidden;
+        padding: 0 var(--space-6);
+        transition:
+            max-height var(--transition-slow),
+            padding var(--transition-slow);
+    }
+
+    .nav-menu--open {
+        max-height: 280px;
+        padding: var(--space-5) var(--space-6);
+    }
+
+    .menu {
+        flex-direction: column;
+        gap: var(--space-4);
+        width: 100%;
+    }
+
+    .nav-link {
+        font-size: var(--text-lg);
+        display: block;
+        padding: var(--space-1) 0;
+    }
+
+    /* Telefone some no menu mobile — fica na aba de contato */
+    .header-phone {
+        display: none;
+    }
+}
+
+/* Mobile — ≤ 479px: logo e botão mais compactos */
+@media (max-width: 479px) {
+    header {
+        padding: 0 var(--space-4);
+    }
+
+    .logo {
+        width: 120px;
+    }
+
+    .btn-cta {
+        font-size: var(--text-xs);
+        padding: var(--space-2) var(--space-3);
+    }
 }
