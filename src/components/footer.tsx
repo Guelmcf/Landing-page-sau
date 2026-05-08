@@ -1,5 +1,5 @@
 import './footer.css'
-import logosau from '../assets/images/logosau.png'
+import logosau from '../assets/images/logosau.webp'
 
 function Footer() {
     const scrollToForm = () =>
@@ -14,7 +14,7 @@ function Footer() {
                 <div className="ft-brand">
                     <a href="#home" className="ft-logo-link" aria-label="Ir para o início">
                         <div className="ft-logo-wrapper">
-                            <img src={logosau} alt="SAÚ Culinária" className="ft-logo" />
+                            <img src={logosau} alt="SAÚ Culinária" className="ft-logo" loading="lazy" width={612} height={408} />
                         </div>
                     </a>
                     <p className="ft-tagline">

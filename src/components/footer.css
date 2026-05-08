@@ -78,14 +78,14 @@
 }
 
 /* Label uppercase espaçado — padrão visual de colunas de footer */
+/* Contraste: #8DAE8E sobre #0D2410 = 6.72:1 — AA ✓ */
 .ft-col-title {
     font-family: var(--font-body);
     font-size: var(--text-xs);
     font-weight: var(--weight-semibold);
     letter-spacing: var(--tracking-widest);
     text-transform: uppercase;
-    color: var(--color-brand-muted);
-    opacity: 0.75;
+    color: #8DAE8E;
     margin: 0 0 var(--space-4) 0;
 }
 
@@ -126,11 +126,11 @@
     border-radius: var(--radius-sm);
 }
 
+/* Contraste: #739375 sobre #0D2410 = 4.82:1 — AA ✓ */
 .ft-location {
     font-family: var(--font-body);
     font-size: var(--text-sm);
-    color: var(--color-brand-muted);
-    opacity: 0.55;
+    color: #739375;
 }
 
 /* ── CTA box ────────────────────────────────────────────────── */
@@ -211,19 +211,18 @@
     outline-offset: 2px;
 }
 
+/* Contraste: #95B897 sobre #0D2410 = 7.50:1 — AA ✓ */
 .ft-cta-wpp {
     font-family: var(--font-body);
     font-size: var(--text-xs);
-    color: var(--color-brand-muted);
+    color: #95B897;
     text-decoration: none;
-    opacity: 0.8;
 
-    transition: color var(--transition-fast), opacity var(--transition-fast);
+    transition: color var(--transition-fast);
 }
 
 .ft-cta-wpp:hover {
     color: var(--color-text-inverted);
-    opacity: 1;
     text-decoration: underline;
 }
 
@@ -252,26 +251,23 @@
     margin: 0;
 }
 
+/* Contraste: #739375 sobre #0D2410 = 4.82:1 — AA ✓ */
 .ft-dev {
     font-family: var(--font-body);
     font-size: var(--text-xs);
     font-weight: var(--weight-regular);
-    color: var(--color-brand-muted);
-    opacity: 0.55;
+    color: #739375;
     margin: 0;
 }
 
 .ft-dev-link {
     color: inherit;
     text-decoration: none;
-    transition:
-        color var(--transition-fast),
-        opacity var(--transition-fast);
+    transition: color var(--transition-fast);
 }
 
 .ft-dev-link:hover {
     color: var(--color-text-inverted);
-    opacity: 1;
     text-decoration: underline;
 }
 

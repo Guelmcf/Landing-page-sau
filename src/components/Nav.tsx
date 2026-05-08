@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import logosau from "../assets/images/logosau.png";
+import logosau from "../assets/images/logosau.webp";
 import "./Nav.css";
 
 function Header() {
@@ -22,10 +22,11 @@ function Header() {
     return (
         <header className={scrolled ? 'header--scrolled' : undefined}>
             <a href="#home" className="logo-link" aria-label="Ir para o início">
-                <img src={logosau} alt="SAÚ Culinária" className="logo" />
+                <img src={logosau} alt="SAÚ Culinária" className="logo" width={612} height={408} />
             </a>
 
             <nav
+                id="nav-menu"
                 className={`nav-menu${menuOpen ? ' nav-menu--open' : ''}`}
                 aria-label="Menu principal"
             >
@@ -60,6 +61,7 @@ function Header() {
                 className={`nav-toggle${menuOpen ? ' nav-toggle--open' : ''}`}
                 aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
                 aria-expanded={menuOpen}
+                aria-controls="nav-menu"
                 onClick={() => setMenuOpen(o => !o)}
             >
                 <span />

@@ -1,5 +1,5 @@
 import "./quem_somos.css"
-import Pai from "../assets/images/Pai.jpeg"
+import Pai from "../assets/images/Pai.webp"
 
 function QuemSomos() {
     const scrollToForm = () =>
@@ -17,6 +17,9 @@ function QuemSomos() {
                         src={Pai}
                         alt="Chef William Mendes, fundador da SAÚ Culinária"
                         className="qs-chef-img"
+                        loading="lazy"
+                        width={1179}
+                        height={1178}
                     />
                 </div>
 

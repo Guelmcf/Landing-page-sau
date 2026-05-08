@@ -1,6 +1,5 @@
 import './hero.css'
 import foto_prato from "../assets/images/foto_prato.avif"
-import right_symbol from "../assets/images/right_symbol.png"
 
 function Hero() {
     const scrollToForm = () =>
@@ -49,14 +48,21 @@ function Hero() {
                         src={foto_prato}
                         alt="Marmita SAÚ Culinária"
                         className="fotoComida"
+                        fetchPriority="high"
+                        width={600}
+                        height={450}
                     />
                     <div className="texto-da-foto">
-                        <img
-                            src={right_symbol}
-                            alt=""
+                        <svg
                             aria-hidden="true"
                             className="simbolo"
-                        />
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <circle cx="12" cy="12" r="12" fill="#000" />
+                            <path d="M7 12.5l3.5 3.5 6.5-7" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
                         comida de verdade,<br />no seu tempo
                     </div>
                 </div>
