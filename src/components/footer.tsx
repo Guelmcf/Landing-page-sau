@@ -8,7 +8,7 @@ function Footer() {
     return (
         <footer className="ft-footer">
 
-            <div className="ft-main">
+            <div className="ft-main" data-reveal>
 
                 {/* MARCA */}
                 <div className="ft-brand">

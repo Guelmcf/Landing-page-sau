@@ -65,7 +65,7 @@ function Forms() {
         <section className="fm-container" id="formulario">
 
             {/* COLUNA DE INFORMAÇÃO */}
-            <div className="fm-info">
+            <div className="fm-info" data-reveal>
                 <span className="fm-badge">Solicite Agora</span>
 
                 <h2 className="fm-titulo">
@@ -118,7 +118,7 @@ function Forms() {
             </div>
 
             {/* CARD DO FORMULÁRIO */}
-            <div className="fm-card">
+            <div className="fm-card" data-reveal data-reveal-delay="100">
                 <form className="fm-form" onSubmit={handleSubmit} noValidate>
 
                     <div className="fm-field">

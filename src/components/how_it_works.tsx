@@ -7,13 +7,13 @@ function HowItWorks() {
     return (
         <section className="hw-container" id="como-funciona">
 
-            <h2 className="hw-titulo">Como Funciona</h2>
-            <p className="hw-subtitulo">
+            <h2 className="hw-titulo" data-reveal>Como Funciona</h2>
+            <p className="hw-subtitulo" data-reveal data-reveal-delay="50">
                 Em poucos passos sua empresa terá a melhor solução
                 de alimentação do mercado.
             </p>
 
-            <ol className="hw-steps" role="list">
+            <ol className="hw-steps" role="list" data-reveal data-reveal-delay="100">
                 <li className="hw-step">
                     <div className="hw-step-symbol" aria-hidden="true">1</div>
                     <h3 className="hw-step-title">Contato Inicial</h3>
@@ -48,7 +48,7 @@ function HowItWorks() {
                 </li>
             </ol>
 
-            <div className="hw-call">
+            <div className="hw-call" data-reveal data-reveal-delay="200">
                 <div className="hw-call-content">
                     <p className="hw-call-badge">⚡ Processo Ágil</p>
                     <p className="hw-call-text">

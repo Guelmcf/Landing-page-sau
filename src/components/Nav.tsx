@@ -1,9 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import logosau from "../assets/images/logosau.png";
 import "./Nav.css";
 
 function Header() {
-    const [menuOpen, setMenuOpen] = useState(false);
+    const [menuOpen,  setMenuOpen]  = useState(false);
+    const [scrolled,  setScrolled]  = useState(false);
+
+    useEffect(() => {
+        const onScroll = () => setScrolled(window.scrollY > 20)
+        window.addEventListener('scroll', onScroll, { passive: true })
+        return () => window.removeEventListener('scroll', onScroll)
+    }, [])
 
     const closeMenu = () => setMenuOpen(false);
 
@@ -13,7 +20,7 @@ function Header() {
     };
 
     return (
-        <header>
+        <header className={scrolled ? 'header--scrolled' : undefined}>
             <a href="#home" className="logo-link" aria-label="Ir para o início">
                 <img src={logosau} alt="SAÚ Culinária" className="logo" />
             </a>

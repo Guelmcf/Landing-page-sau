@@ -1,4 +1,9 @@
 /* ── Header ─────────────────────────────────────────────────── */
+/*
+  No topo da página: sem sombra — o contraste com o hero escuro basta.
+  Ao scrollar: sombra + backdrop-blur sutil aparecem com transição suave.
+  A classe .header--scrolled é adicionada pelo Nav.tsx via useEffect.
+*/
 header {
     display: flex;
     align-items: center;
@@ -8,13 +13,24 @@ header {
     padding: 0 var(--space-6);
     height: var(--header-height);
     background-color: var(--color-bg-section);
-    box-shadow: var(--shadow-sm);
+    box-shadow: none;
 
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
+
+    transition:
+        box-shadow var(--transition-base),
+        background-color var(--transition-base);
+}
+
+header.header--scrolled {
+    background-color: rgba(238, 247, 238, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: var(--shadow-md);
 }
 
 /* ── Logo ───────────────────────────────────────────────────── */
@@ -52,15 +68,41 @@ header {
     font-weight: var(--weight-medium);
     color: var(--color-text-primary);
     text-decoration: none;
+    position: relative;
     transition: color var(--transition-fast);
 }
 
-.nav-link:hover {
+/*
+  Underline animado: scaleX(0) → scaleX(1) da esquerda no hover,
+  scaleX(1) → scaleX(0) para a esquerda ao sair.
+  transform-origin muda instantaneamente com o estado, só scaleX anima.
+*/
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-brand);
+    border-radius: var(--radius-pill);
+    transform: scaleX(0);
+    transform-origin: right center;
+    transition: transform var(--transition-fast);
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
     color: var(--color-brand);
 }
 
+.nav-link:hover::after,
+.nav-link:focus-visible::after {
+    transform: scaleX(1);
+    transform-origin: left center;
+}
+
 .nav-link:focus-visible {
-    color: var(--color-brand);
     outline: 2px solid var(--color-border-focus);
     outline-offset: 3px;
     border-radius: var(--radius-sm);
@@ -108,12 +150,19 @@ header {
 
     transition:
         background-color var(--transition-fast),
-        box-shadow var(--transition-fast);
+        box-shadow var(--transition-fast),
+        transform var(--transition-fast);
 }
 
 .btn-cta:hover {
     background-color: var(--color-brand-dark);
     box-shadow: var(--shadow-brand);
+    transform: translateY(-1px);
+}
+
+.btn-cta:active {
+    transform: translateY(0);
+    box-shadow: none;
 }
 
 .btn-cta:focus-visible {
@@ -198,6 +247,11 @@ header {
 
     /* Telefone some no menu mobile — fica na aba de contato */
     .header-phone {
+        display: none;
+    }
+
+    /* Underline não faz sentido em links de bloco vertical */
+    .nav-link::after {
         display: none;
     }
 }

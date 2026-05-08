@@ -1,4 +1,5 @@
 import './App.css'
+import { useReveal } from './hooks/useReveal'
 import Header from './components/Nav.tsx'
 import Hero from './components/hero.tsx'
 import QuemSomos from './components/quem_somos.tsx'
@@ -9,6 +10,8 @@ import Footer from './components/footer.tsx'
 
 
 function App() {
+  useReveal()
+
   return (
     <>
       <Header />

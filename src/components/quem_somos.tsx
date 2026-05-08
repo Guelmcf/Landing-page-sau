@@ -8,9 +8,9 @@ function QuemSomos() {
     return (
         <section className="qs-container" id="quem-somos">
 
-            <h2 className="qs-titulo">Quem Somos</h2>
+            <h2 className="qs-titulo" data-reveal>Quem Somos</h2>
 
-            <div className="qs-corpo">
+            <div className="qs-corpo" data-reveal data-reveal-delay="100">
 
                 <div className="qs-foto">
                     <img

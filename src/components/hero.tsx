@@ -9,7 +9,7 @@ function Hero() {
     return (
         <section className="container-hero" id="home">
 
-            <div className="wrapper-txt">
+            <div className="wrapper-txt" data-reveal>
                 <div className="hero-header">
                     <h1 className="hero-titulo">
                         Alimentação pra sua Empresa{' '}
@@ -43,7 +43,7 @@ function Hero() {
                 </ul>
             </div>
 
-            <div className="wrapper-img">
+            <div className="wrapper-img" data-reveal data-reveal-delay="150">
                 <div className="img-container">
                     <img
                         src={foto_prato}

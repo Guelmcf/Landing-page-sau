@@ -1,0 +1,32 @@
+/* ── Reveal: estado inicial (escondido) ──────────────────────── */
+/*
+  [data-reveal] define o estado de partida para todos os elementos animados.
+  A classe .is-visible é adicionada pelo IntersectionObserver quando o
+  elemento entra no viewport — a transition cuida do resto.
+  transition-delay lê --reveal-delay (setado via JS) para efeito cascata.
+*/
+[data-reveal] {
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+        opacity var(--duration-slow) var(--ease-out),
+        transform var(--duration-slow) var(--ease-out);
+    transition-delay: var(--reveal-delay, 0ms);
+}
+
+[data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+/*
+  Acessibilidade: usuários que pedem redução de movimento não veem
+  animações. Os elementos são imediatamente visíveis.
+*/
+@media (prefers-reduced-motion: reduce) {
+    [data-reveal] {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}

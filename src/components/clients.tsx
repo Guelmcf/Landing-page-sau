@@ -67,13 +67,13 @@ function Clientes() {
     return (
         <section className="cl-container" id="nossos-clientes">
 
-            <h2 className="cl-titulo">Empresas que confiam em nós</h2>
-            <p className="cl-subtitulo">
+            <h2 className="cl-titulo" data-reveal>Empresas que confiam em nós</h2>
+            <p className="cl-subtitulo" data-reveal data-reveal-delay="50">
                 Dezenas de empresas já transformaram a alimentação de seus colaboradores
             </p>
 
             {/* CARROSSEL */}
-            <div className="cl-carousel">
+            <div className="cl-carousel" data-reveal data-reveal-delay="100">
                 <button className="cl-carousel-btn" onClick={prev} aria-label="Review anterior">
                     &#8249;
                 </button>
@@ -123,7 +123,7 @@ function Clientes() {
             </div>
 
             {/* GRADE DE CLIENTES */}
-            <div className="cl-grid-section">
+            <div className="cl-grid-section" data-reveal data-reveal-delay="150">
                 <h3 className="cl-grid-title">Nossos Clientes</h3>
                 <div className="cl-grid">
                     {clientes.map((c) => (
@@ -137,7 +137,7 @@ function Clientes() {
             </div>
 
             {/* CTA */}
-            <button className="cl-cta" onClick={scrollToForm}>
+            <button className="cl-cta" onClick={scrollToForm} data-reveal data-reveal-delay="50">
                 Quero fazer parte
             </button>
 
