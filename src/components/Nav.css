@@ -27,7 +27,7 @@ header {
 }
 
 header.header--scrolled {
-    background-color: rgba(238, 247, 238, 0.95);
+    background-color: var(--color-bg-section-translucent);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     box-shadow: var(--shadow-md);

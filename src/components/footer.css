@@ -85,7 +85,7 @@
     font-weight: var(--weight-semibold);
     letter-spacing: var(--tracking-widest);
     text-transform: uppercase;
-    color: #8DAE8E;
+    color: var(--color-text-on-dark-muted);
     margin: 0 0 var(--space-4) 0;
 }
 
@@ -130,7 +130,7 @@
 .ft-location {
     font-family: var(--font-body);
     font-size: var(--text-sm);
-    color: #739375;
+    color: var(--color-text-on-dark-dimmed);
 }
 
 /* ── CTA box ────────────────────────────────────────────────── */
@@ -215,7 +215,7 @@
 .ft-cta-wpp {
     font-family: var(--font-body);
     font-size: var(--text-xs);
-    color: #95B897;
+    color: var(--color-text-on-dark-soft);
     text-decoration: none;
 
     transition: color var(--transition-fast);
@@ -256,7 +256,7 @@
     font-family: var(--font-body);
     font-size: var(--text-xs);
     font-weight: var(--weight-regular);
-    color: #739375;
+    color: var(--color-text-on-dark-dimmed);
     margin: 0;
 }
 

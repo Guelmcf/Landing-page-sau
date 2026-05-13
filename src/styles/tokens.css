@@ -76,8 +76,14 @@
   --color-bg-page:    #ffffff;                    /* página base                          */
   --color-bg-subtle:  var(--raw-stone-50);        /* alternativa levíssima ao branco      */
   --color-bg-section: var(--raw-green-50);        /* seções de fundo esverdeado           */
+  --color-bg-section-translucent: rgba(238, 247, 238, 0.95); /* nav blur ao scrollar      */
   --color-bg-dark:    var(--raw-green-800);       /* seções escuras (hero, footer)        */
   --color-bg-darker:  var(--raw-green-950);       /* footer base, máximo contraste        */
+
+  /* Texto sobre fundos escuros (específico para footer/hero) */
+  --color-text-on-dark-muted:  #8DAE8E;           /* títulos de coluna no footer (6.72:1) */
+  --color-text-on-dark-dimmed: #739375;           /* texto secundário no footer (4.82:1)  */
+  --color-text-on-dark-soft:   #95B897;           /* links discretos no footer (7.50:1)   */
 
   /* Bordas */
   --color-border:        var(--raw-stone-200);    /* bordas neutras padrão                */
