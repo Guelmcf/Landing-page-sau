@@ -40,6 +40,9 @@ function Header() {
                     <li>
                         <a href="#nossos-clientes" className="nav-link" onClick={closeMenu}>Nossos Clientes</a>
                     </li>
+                    <li>
+                        <a href="#cardapio" className="nav-link" onClick={closeMenu}>Cardápio</a>
+                    </li>
                 </ul>
             </nav>
 
