@@ -446,6 +446,56 @@
     text-align: center;
 }
 
+/* ── Banner fim de semana ─────────────────────────────────────── */
+.cd-fim-semana {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+
+    width: 100%;
+    background-color: var(--color-brand-surface);
+    border-radius: var(--radius-lg);
+    border-left: 5px solid var(--color-brand);
+    padding: var(--space-6) var(--space-7);
+}
+
+.cd-fim-semana-icon {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    color: var(--color-brand);
+}
+
+.cd-fim-semana-titulo {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    font-weight: var(--weight-bold);
+    color: var(--color-brand-dark);
+    margin-bottom: var(--space-2);
+}
+
+.cd-fim-semana-texto {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-weight: var(--weight-regular);
+    line-height: var(--leading-relaxed);
+    color: var(--color-text-secondary);
+    margin: 0;
+}
+
+@media (max-width: 479px) {
+    .cd-fim-semana {
+        padding: var(--space-5);
+        gap: var(--space-4);
+    }
+
+    .cd-fim-semana-icon {
+        width: 36px;
+        height: 36px;
+    }
+}
+
 /* ── Tabs ─────────────────────────────────────────────────────── */
 .cd-tabs {
     display: flex;

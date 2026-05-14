@@ -88,7 +88,7 @@ function Cardapio() {
                         <span className="cd-linha-tag cd-linha-tag--padrao">Custo-benefício</span>
                         <h3 className="cd-linha-nome">Linha Padrão</h3>
                         <p className="cd-linha-desc">
-                            Opção mais competitiva em preço. Ideal para empresas que buscam
+                            Opção ideal para empresas que buscam
                             praticidade sem abrir mão da qualidade.
                         </p>
                     </div>
@@ -108,8 +108,9 @@ function Cardapio() {
                         <span className="cd-linha-tag cd-linha-tag--reforcada">Recomendada</span>
                         <h3 className="cd-linha-nome">Linha Reforçada</h3>
                         <p className="cd-linha-desc">
-                            Maior valor percebido. Indicada para equipes que fazem da
-                            refeição a principal refeição do dia.
+                            Opção indicada para equipes que buscam robustez e sustancia
+                            a cada refeição
+                            .
                         </p>
                     </div>
                     <ul className="cd-linha-itens">
@@ -197,6 +198,21 @@ function Cardapio() {
                     <p className="cd-nota">
                         Todas as refeições incluem arroz e feijão como base.
                     </p>
+
+                    <div className="cd-fim-semana">
+                        <svg className="cd-fim-semana-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                            <line x1="16" y1="2" x2="16" y2="6"/>
+                            <line x1="8" y1="2" x2="8" y2="6"/>
+                            <line x1="3" y1="10" x2="21" y2="10"/>
+                        </svg>
+                        <div>
+                            <strong className="cd-fim-semana-titulo">Finais de semana</strong>
+                            <p className="cd-fim-semana-texto">
+                                Nos finais de semana sua equipe tem liberdade de escolher qualquer prato da semana vigente — sem surpresas no pedido.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
