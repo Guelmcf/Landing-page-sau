@@ -2,9 +2,6 @@ import './footer.css'
 import logosau from '../assets/images/logosau.webp'
 
 function Footer() {
-    const scrollToForm = () =>
-        document.getElementById('formulario')?.scrollIntoView({ behavior: 'smooth' });
-
     return (
         <footer className="ft-footer">
 
@@ -31,6 +28,7 @@ function Footer() {
                             <li><a href="#home"            className="ft-link">Home</a></li>
                             <li><a href="#como-funciona"   className="ft-link">Como Funciona</a></li>
                             <li><a href="#nossos-clientes" className="ft-link">Nossos Clientes</a></li>
+                            <li><a href="#cardapio"        className="ft-link">Cardápio</a></li>
                             <li><a href="#formulario"      className="ft-link">Solicitar Orçamento</a></li>
                         </ul>
                     </nav>
@@ -46,8 +44,9 @@ function Footer() {
                                 className="ft-link"
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                aria-label="Fale conosco pelo WhatsApp: (31) 99232-5030"
                             >
-                                (31) 99232-5030
+                                WhatsApp
                             </a>
                         </li>
                         <li>
@@ -57,25 +56,6 @@ function Footer() {
                         </li>
                         <li className="ft-location">Belo Horizonte, MG</li>
                     </ul>
-                </div>
-
-                {/* CTA BOX */}
-                <div className="ft-cta-box">
-                    <p className="ft-cta-title">Pronto para começar?</p>
-                    <p className="ft-cta-desc">
-                        Receba seu orçamento em até 24 horas
-                    </p>
-                    <button className="ft-cta-btn" onClick={scrollToForm}>
-                        Solicitar Orçamento
-                    </button>
-                    <a
-                        href="https://wa.me/5531992325030"
-                        className="ft-cta-wpp"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Ou fale pelo WhatsApp →
-                    </a>
                 </div>
 
             </div>

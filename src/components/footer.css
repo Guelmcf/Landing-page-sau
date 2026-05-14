@@ -14,16 +14,10 @@
     gap: var(--space-7);
 }
 
-/* ── Grid principal: 4 colunas ──────────────────────────────── */
-/*
-  Brand (2fr) — mais espaço para logo e tagline
-  Nav (1fr)   — links compactos
-  Contato (1fr)
-  CTA (1.5fr) — box com fundo e botão
-*/
+/* ── Grid principal: 3 colunas ──────────────────────────────── */
 .ft-main {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    grid-template-columns: 2fr 1fr 1fr;
     align-items: start;
     gap: var(--space-8);
 
@@ -85,7 +79,7 @@
     font-weight: var(--weight-semibold);
     letter-spacing: var(--tracking-widest);
     text-transform: uppercase;
-    color: #8DAE8E;
+    color: var(--color-text-on-dark-muted);
     margin: 0 0 var(--space-4) 0;
 }
 
@@ -130,100 +124,7 @@
 .ft-location {
     font-family: var(--font-body);
     font-size: var(--text-sm);
-    color: #739375;
-}
-
-/* ── CTA box ────────────────────────────────────────────────── */
-/*
-  Glassmorphism sutil — diferencia a coluna sem usar cor de fundo opaca.
-*/
-.ft-cta-box {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
-    align-items: flex-start;
-
-    background-color: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.10);
-    border-radius: var(--radius-xl);
-    padding: var(--space-6);
-}
-
-/*
-  Contraste: branco sobre fundo escuro = 14.5:1 — AAA ✓
-*/
-.ft-cta-title {
-    font-family: var(--font-heading);
-    font-size: var(--text-xl);
-    font-weight: var(--weight-bold);
-    line-height: var(--leading-tight);
-    color: var(--color-text-inverted);
-    margin: 0;
-}
-
-.ft-cta-desc {
-    font-family: var(--font-body);
-    font-size: var(--text-sm);
-    font-weight: var(--weight-regular);
-    line-height: var(--leading-normal);
-    color: var(--color-brand-muted);
-    margin: 0;
-}
-
-/*
-  Botão branco = máximo destaque no footer escuro.
-  Mesma lógica visual do CTA do hero — padrão consistente em toda a página.
-  Contraste: --color-brand-dark (#1E4620) sobre branco = 9.5:1 — AAA ✓
-*/
-.ft-cta-btn {
-    font-family: var(--font-body);
-    font-size: var(--text-sm);
-    font-weight: var(--weight-semibold);
-    color: var(--color-brand-dark);
-    background-color: var(--color-bg-page);
-
-    border: none;
-    padding: var(--space-3) var(--space-5);
-    margin-top: var(--space-2);
-    border-radius: var(--radius-pill);
-    cursor: pointer;
-    white-space: nowrap;
-
-    transition:
-        background-color var(--transition-fast),
-        box-shadow var(--transition-fast),
-        transform var(--transition-fast);
-}
-
-.ft-cta-btn:hover {
-    background-color: var(--color-brand-muted);
-    box-shadow: var(--shadow-lg);
-    transform: translateY(-1px);
-}
-
-.ft-cta-btn:active {
-    transform: translateY(0);
-    box-shadow: none;
-}
-
-.ft-cta-btn:focus-visible {
-    outline: 2px solid var(--color-text-inverted);
-    outline-offset: 2px;
-}
-
-/* Contraste: #95B897 sobre #0D2410 = 7.50:1 — AA ✓ */
-.ft-cta-wpp {
-    font-family: var(--font-body);
-    font-size: var(--text-xs);
-    color: #95B897;
-    text-decoration: none;
-
-    transition: color var(--transition-fast);
-}
-
-.ft-cta-wpp:hover {
-    color: var(--color-text-inverted);
-    text-decoration: underline;
+    color: var(--color-text-on-dark-dimmed);
 }
 
 /* ── Divisor ────────────────────────────────────────────────── */
@@ -256,7 +157,7 @@
     font-family: var(--font-body);
     font-size: var(--text-xs);
     font-weight: var(--weight-regular);
-    color: #739375;
+    color: var(--color-text-on-dark-dimmed);
     margin: 0;
 }
 
@@ -273,7 +174,7 @@
 
 /* ── Responsividade ─────────────────────────────────────────── */
 
-/* Tablet — ≤ 1023px: 2×2 */
+/* Tablet — ≤ 1023px: brand ocupa linha inteira, nav e contato abaixo */
 @media (max-width: 1023px) {
     .ft-footer {
         padding: var(--space-8) var(--space-6) var(--space-5);
@@ -285,25 +186,8 @@
         gap: var(--space-6);
     }
 
-    /*
-      No 2×2 o CTA box ocupa a célula 2,2.
-      No tablet, preferimos que ele ocupe toda a linha final,
-      e use layout horizontal para não ficar alto demais.
-    */
-    .ft-cta-box {
+    .ft-brand {
         grid-column: 1 / -1;
-        flex-direction: row;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: var(--space-5);
-    }
-
-    .ft-cta-box > .ft-cta-btn {
-        margin-top: 0;
-    }
-
-    .ft-cta-box > .ft-cta-wpp {
-        display: none;
     }
 
     .ft-tagline {
@@ -323,20 +207,8 @@
         gap: var(--space-5);
     }
 
-    .ft-cta-box {
+    .ft-brand {
         grid-column: 1;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .ft-cta-box > .ft-cta-wpp {
-        display: inline;
-    }
-
-    .ft-cta-btn {
-        width: 100%;
-        text-align: center;
-        padding: var(--space-4) var(--space-5);
     }
 
     .ft-bottom {
