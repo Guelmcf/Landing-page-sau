@@ -172,17 +172,6 @@ function doPost(e) {
 
 ---
 
-## Build e Deploy
-
-```bash
-npm run build   # gera os arquivos em /dist
-npm run preview # visualiza o build de produção localmente
-```
-
-A pasta `/dist` é um site estático — faça deploy no Vercel, Netlify ou qualquer host estático.
-
----
-
 ## Autor
 
 **Miguel Chaves** — [github.com/Guelmcf](https://github.com/Guelmcf)
