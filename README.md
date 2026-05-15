@@ -1,7 +1,7 @@
 # SAÚ Culinária — Landing Page
 
-> B2B lead-generation landing page for a corporate meal-delivery service in Belo Horizonte, Brazil.  
-> Built as a real client project and part of my front-end portfolio.
+> Landing page de captação de leads B2B para um serviço de marmitas corporativas em Belo Horizonte.  
+> Desenvolvido como projeto real para um cliente e parte do meu portfólio front-end.
 
 ![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white&labelColor=20232A)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript&logoColor=white&labelColor=1a1a2e)
@@ -9,80 +9,80 @@
 
 ---
 
-## Overview
+## Visão Geral
 
-SAÚ Culinária delivers home-cooked corporate meals daily. The landing page goal is a single conversion: get a company representative to fill out the contact form and become a lead.
+A SAÚ Culinária entrega refeições caseiras para empresas todos os dias. O objetivo da landing page é uma única conversão: fazer um representante da empresa preencher o formulário de contato e se tornar um lead.
 
-Every technical decision was made with that goal in mind — fast load, clear hierarchy, frictionless form, and two redundant lead-capture channels so no submission is ever lost.
-
----
-
-## Live Demo
-
-🔗 _Coming soon_
+Cada decisão técnica foi tomada com esse objetivo em mente — carregamento rápido, hierarquia clara, formulário sem atrito e dois canais redundantes de captura de lead para que nenhuma submissão seja perdida.
 
 ---
 
-## Features
+## Demo
 
-- **Scroll-reveal animations** — custom `useReveal` hook using the `IntersectionObserver` API, with cascade delay via CSS custom properties and full `prefers-reduced-motion` support
-- **Responsive nav** — blur-on-scroll effect, accessible hamburger menu (`aria-expanded`, `aria-controls`)
-- **Rotating weekly menu** — interactive meal plan with daily tabs
-- **Customer reviews** — real testimonials with star ratings
-- **Validated contact form** — per-field inline errors, phone input mask `(XX) XXXXX-XXXX` (no external library), email regex, duplicate-submission guard via `localStorage`
-- **Dual lead capture** — EmailJS sends an email notification; Google Apps Script writes the lead to a Google Sheet in parallel (fire-and-forget: Sheets failure never blocks the user)
-- **Performance** — hero image in AVIF with `fetchPriority="high"`, Google Fonts with `preconnect`, no heavy UI libraries
+🔗 _Em breve_
 
 ---
 
-## Tech Stack
+## Funcionalidades
 
-| Layer | Choice | Reason |
+- **Animações de scroll reveal** — hook `useReveal` customizado usando a API `IntersectionObserver`, com delay em cascata via CSS custom properties e suporte completo a `prefers-reduced-motion`
+- **Nav responsiva** — efeito de blur ao rolar a página, menu hamburger acessível (`aria-expanded`, `aria-controls`)
+- **Cardápio semanal rotativo** — plano de refeições interativo com abas por dia
+- **Depoimentos reais** — avaliações de clientes com estrelas
+- **Formulário com validação** — erros inline por campo, máscara de telefone `(XX) XXXXX-XXXX` (sem biblioteca externa), regex de e-mail, bloqueio de envio duplicado via `localStorage`
+- **Dupla captura de lead** — EmailJS envia notificação por e-mail; Google Apps Script registra o lead em uma planilha em paralelo (fire-and-forget: falha no Sheets nunca bloqueia o usuário)
+- **Performance** — imagem hero em AVIF com `fetchPriority="high"`, Google Fonts com `preconnect`, sem bibliotecas de UI pesadas
+
+---
+
+## Stack
+
+| Camada | Tecnologia | Motivo |
 |---|---|---|
-| Framework | React 19 | Concurrent features, stable |
-| Language | TypeScript 5.9 | Type safety across all components |
-| Bundler | Vite 7 | Sub-second HMR, optimized production builds |
-| Styling | Vanilla CSS + custom properties | No runtime overhead, full design control |
-| Email | EmailJS | Client-side email without a backend |
-| Lead DB | Google Sheets via Apps Script | Zero infrastructure, free tier, spreadsheet access for the client |
+| Framework | React 19 | Recursos concorrentes, estável |
+| Linguagem | TypeScript 5.9 | Tipagem em todos os componentes |
+| Bundler | Vite 7 | HMR instantâneo, builds otimizados |
+| Estilização | CSS puro + custom properties | Sem overhead em runtime, controle total do design |
+| E-mail | EmailJS | Envio de e-mail client-side sem backend |
+| Base de leads | Google Sheets via Apps Script | Zero infraestrutura, tier gratuito, acesso em planilha para o cliente |
 
 ---
 
-## Architecture Highlights
+## Destaques de Arquitetura
 
-### Design Token System
+### Sistema de Design Tokens
 
-All visual decisions live in `src/styles/tokens.css` as CSS custom properties with a two-layer structure: raw primitives (e.g. `--raw-green-600`) that components never touch directly, and semantic tokens (e.g. `--color-brand`, `--color-text-secondary`) that carry intent. Changing the brand color means editing one line.
+Todas as decisões visuais vivem em `src/styles/tokens.css` como CSS custom properties com estrutura de duas camadas: primitivos brutos (ex: `--raw-green-600`) que os componentes nunca usam diretamente, e tokens semânticos (ex: `--color-brand`, `--color-text-secondary`) que carregam intenção. Mudar a cor da marca significa editar uma linha.
 
-### Scroll Reveal Hook
+### Hook de Scroll Reveal
 
 ```ts
 // src/hooks/useReveal.ts
-// Observes [data-reveal] elements; adds .is-visible when they enter the viewport.
-// Cascade stagger is driven by --reveal-delay CSS custom property set from
-// data-reveal-delay attribute — no setTimeout, no JS timers.
+// Observa elementos [data-reveal] e adiciona .is-visible quando entram no viewport.
+// O efeito de cascata é controlado pela custom property --reveal-delay via CSS,
+// definida por JS a partir do atributo data-reveal-delay — sem setTimeout, sem timers.
 export function useReveal() { ... }
 ```
 
-Respects `prefers-reduced-motion`: elements become immediately visible with no transition.
+Respeita `prefers-reduced-motion`: elementos ficam visíveis imediatamente, sem transição.
 
-### Dual Lead Pipeline
+### Pipeline Duplo de Lead
 
 ```
-User submits form
+Usuário envia formulário
        │
-       ├─► EmailJS.send()          ← awaited; blocks success state
+       ├─► EmailJS.send()          ← aguardado; controla o estado de sucesso
        │         │
-       │    ✓ success
+       │    ✓ sucesso
        │         │
-       │         └─► sendToSheets()   ← fire-and-forget (.catch logs warning)
+       │         └─► sendToSheets()   ← fire-and-forget (.catch loga aviso)
        │
-       └─► on error → show error message (Sheets never involved)
+       └─► em erro → exibe mensagem de erro (Sheets nunca é envolvido)
 ```
 
-The email is the source of truth. Sheets is a convenience layer for the client to browse leads without checking email.
+O e-mail é a fonte de verdade. O Sheets é uma camada de conveniência para o cliente visualizar leads sem precisar checar o e-mail.
 
-### Form Validation (no library)
+### Validação de Formulário (sem biblioteca)
 
 ```ts
 function maskPhone(value: string): string {
@@ -93,54 +93,54 @@ function maskPhone(value: string): string {
 }
 ```
 
-Errors are shown per-field and clear individually as the user corrects each input.
+Os erros são exibidos por campo e somem individualmente conforme o usuário corrige cada input.
 
 ---
 
-## Project Structure
+## Estrutura do Projeto
 
 ```
 src/
-├── assets/images/          # WebP/AVIF optimized images
-├── components/             # One .tsx + .css pair per section
-│   ├── Nav.tsx             # Sticky header, hamburger menu
-│   ├── hero.tsx            # Above-the-fold CTA + stats
-│   ├── how_it_works.tsx    # 3-step process
-│   ├── clients.tsx         # Customer testimonials
-│   ├── cardapio.tsx        # Weekly rotating menu + pricing tiers
-│   ├── forms.tsx           # Lead capture form (validation + dual submit)
+├── assets/images/          # Imagens otimizadas em WebP/AVIF
+├── components/             # Um par .tsx + .css por seção
+│   ├── Nav.tsx             # Header fixo, menu hamburger
+│   ├── hero.tsx            # CTA acima da dobra + estatísticas
+│   ├── how_it_works.tsx    # Processo em 3 etapas
+│   ├── clients.tsx         # Depoimentos de clientes
+│   ├── cardapio.tsx        # Cardápio semanal rotativo + faixas de preço
+│   ├── forms.tsx           # Formulário de captura (validação + envio duplo)
 │   └── footer.tsx
 ├── hooks/
-│   └── useReveal.ts        # IntersectionObserver scroll animations
+│   └── useReveal.ts        # Animações de scroll com IntersectionObserver
 └── styles/
-    ├── tokens.css          # Design token system (primitives + semantics)
-    └── reveal.css          # [data-reveal] + .is-visible animation classes
+    ├── tokens.css          # Sistema de design tokens (primitivos + semânticos)
+    └── reveal.css          # Classes [data-reveal] + .is-visible
 ```
 
 ---
 
-## Getting Started
+## Como Rodar
 
 ```bash
 # 1. Clone
 git clone https://github.com/Guelmcf/Landing-page-sau.git
 cd Landing-page-sau
 
-# 2. Install
+# 2. Instale as dependências
 npm install
 
-# 3. Configure environment variables (see below)
+# 3. Configure as variáveis de ambiente (veja abaixo)
 cp .env.example .env
 
-# 4. Run dev server
+# 4. Inicie o servidor de desenvolvimento
 npm run dev
 ```
 
 ---
 
-## Environment Variables
+## Variáveis de Ambiente
 
-Create a `.env` file at the project root:
+Crie um arquivo `.env` na raiz do projeto:
 
 ```env
 # EmailJS — https://www.emailjs.com
@@ -148,14 +148,14 @@ VITE_EMAILJS_SERVICE_ID=your_service_id
 VITE_EMAILJS_TEMPLATE_ID=your_template_id
 VITE_EMAILJS_PUBLIC_KEY=your_public_key
 
-# Google Apps Script Web App URL — leave empty to disable Sheets integration
+# URL do Google Apps Script Web App — deixe vazio para desativar a integração com Sheets
 VITE_GOOGLE_SHEETS_URL=https://script.google.com/macros/s/.../exec
 ```
 
-### Setting up Google Sheets integration
+### Configurando a integração com Google Sheets
 
-1. Create a Google Sheet with columns: `Data | Nome | Empresa | Email | Telefone | Refeições`
-2. Go to **Extensions → Apps Script** and deploy the following as a Web App (access: *Anyone*):
+1. Crie uma planilha com as colunas: `Data | Nome | Empresa | Email | Telefone | Refeições`
+2. Acesse **Extensões → Apps Script** e publique o código abaixo como Web App (acesso: *Qualquer pessoa*):
 
 ```js
 function doPost(e) {
@@ -168,21 +168,21 @@ function doPost(e) {
 }
 ```
 
-3. Paste the deployment URL into `VITE_GOOGLE_SHEETS_URL`.
+3. Cole a URL da implantação em `VITE_GOOGLE_SHEETS_URL`.
 
 ---
 
-## Build & Deploy
+## Build e Deploy
 
 ```bash
-npm run build   # outputs to /dist
-npm run preview # preview production build locally
+npm run build   # gera os arquivos em /dist
+npm run preview # visualiza o build de produção localmente
 ```
 
-The `/dist` folder is a static site — deploy to Vercel, Netlify, or any static host.
+A pasta `/dist` é um site estático — faça deploy no Vercel, Netlify ou qualquer host estático.
 
 ---
 
-## Author
+## Autor
 
 **Miguel Chaves** — [github.com/Guelmcf](https://github.com/Guelmcf)
