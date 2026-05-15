@@ -10,6 +10,13 @@ const statusMessages: Record<Exclude<FormStatus, 'idle' | 'loading'>, string> = 
     duplicate: 'Você já enviou uma solicitação. Em breve entraremos em contato.',
 }
 
+function maskPhone(value: string): string {
+    const d = value.replace(/\D/g, '').slice(0, 11)
+    if (d.length <= 2)  return d.length ? `(${d}` : ''
+    if (d.length <= 7)  return `(${d.slice(0, 2)}) ${d.slice(2)}`
+    return `(${d.slice(0, 2)}) ${d.slice(2, 7)}-${d.slice(7)}`
+}
+
 function Forms() {
     const [name,        setName]        = useState('')
     const [company,     setCompany]     = useState('')
@@ -17,6 +24,26 @@ function Forms() {
     const [phone,       setPhone]       = useState('')
     const [mealNumbers, setMealNumbers] = useState('')
     const [status,      setStatus]      = useState<FormStatus>('idle')
+    const [errors,      setErrors]      = useState<Record<string, string>>({})
+
+    function clearError(field: string) {
+        setErrors(prev => { const next = { ...prev }; delete next[field]; return next })
+    }
+
+    function validate(): Record<string, string> {
+        const e: Record<string, string> = {}
+        if (name.trim().length < 3)
+            e.name = 'Informe seu nome completo'
+        if (company.trim().length < 2)
+            e.company = 'Informe o nome da empresa'
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.trim()))
+            e.email = 'Informe um e-mail válido'
+        if (phone.replace(/\D/g, '').length < 10)
+            e.phone = 'Informe um telefone válido com DDD'
+        if (!mealNumbers)
+            e.mealNumbers = 'Selecione uma opção'
+        return e
+    }
 
     async function sendToSheets(data: Record<string, string>) {
         const url = import.meta.env.VITE_GOOGLE_SHEETS_URL
@@ -38,9 +65,9 @@ function Forms() {
             return
         }
 
-        const allFilled = [name, company, email, phone, mealNumbers].every(v => v.trim().length > 0)
-        if (!allFilled) {
-            setStatus('error')
+        const fieldErrors = validate()
+        if (Object.keys(fieldErrors).length > 0) {
+            setErrors(fieldErrors)
             return
         }
 
@@ -145,12 +172,12 @@ function Forms() {
                             id="fm-name"
                             name="name"
                             value={name}
-                            onChange={e => setName(e.target.value)}
+                            onChange={e => { setName(e.target.value); clearError('name') }}
                             placeholder="Seu nome"
-                            className="fm-input"
-                            required
+                            className={`fm-input${errors.name ? ' fm-input--error' : ''}`}
                             autoComplete="name"
                         />
+                        {errors.name && <span className="fm-field-error">{errors.name}</span>}
                     </div>
 
                     <div className="fm-field">
@@ -162,12 +189,12 @@ function Forms() {
                             id="fm-company"
                             name="company"
                             value={company}
-                            onChange={e => setCompany(e.target.value)}
+                            onChange={e => { setCompany(e.target.value); clearError('company') }}
                             placeholder="Nome da empresa"
-                            className="fm-input"
-                            required
+                            className={`fm-input${errors.company ? ' fm-input--error' : ''}`}
                             autoComplete="organization"
                         />
+                        {errors.company && <span className="fm-field-error">{errors.company}</span>}
                     </div>
 
                     <div className="fm-field">
@@ -179,12 +206,12 @@ function Forms() {
                             id="fm-email"
                             name="email"
                             value={email}
-                            onChange={e => setEmail(e.target.value)}
+                            onChange={e => { setEmail(e.target.value); clearError('email') }}
                             placeholder="seu@email.com"
-                            className="fm-input"
-                            required
+                            className={`fm-input${errors.email ? ' fm-input--error' : ''}`}
                             autoComplete="email"
                         />
+                        {errors.email && <span className="fm-field-error">{errors.email}</span>}
                     </div>
 
                     <div className="fm-field">
@@ -196,12 +223,12 @@ function Forms() {
                             id="fm-phone"
                             name="phone"
                             value={phone}
-                            onChange={e => setPhone(e.target.value)}
+                            onChange={e => { setPhone(maskPhone(e.target.value)); clearError('phone') }}
                             placeholder="(00) 00000-0000"
-                            className="fm-input"
-                            required
+                            className={`fm-input${errors.phone ? ' fm-input--error' : ''}`}
                             autoComplete="tel"
                         />
+                        {errors.phone && <span className="fm-field-error">{errors.phone}</span>}
                     </div>
 
                     <div className="fm-field">
@@ -212,9 +239,8 @@ function Forms() {
                             id="fm-meals"
                             name="meal-numbers"
                             value={mealNumbers}
-                            onChange={e => setMealNumbers(e.target.value)}
-                            className="fm-input fm-select"
-                            required
+                            onChange={e => { setMealNumbers(e.target.value); clearError('mealNumbers') }}
+                            className={`fm-input fm-select${errors.mealNumbers ? ' fm-input--error' : ''}`}
                         >
                             <option value="">Selecione uma opção</option>
                             <option value="5-10 refeições">5–10 refeições</option>
@@ -223,6 +249,7 @@ function Forms() {
                             <option value="31-40 refeições">31–40 refeições</option>
                             <option value="40+ refeições">40+ refeições</option>
                         </select>
+                        {errors.mealNumbers && <span className="fm-field-error">{errors.mealNumbers}</span>}
                     </div>
 
                     <button
