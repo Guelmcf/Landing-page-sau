@@ -6,7 +6,7 @@ const reviews = [
         stars: 5,
         text: '"As marmitas foram sempre entregues no prazo, estavam sempre muito boas, quentinha, com um cardápio variado. Superando sempre  as expectativas!"',
         name: 'Joyce Coelho',
-        company: '',
+        company: 'Gestora de Eventos',
         initial: 'J',
         avatarClass: 'cl-avatar--1',
     },
@@ -28,7 +28,7 @@ const reviews = [
     },
     {
         stars: 5,
-        text: '"Desde quando crontratamos a Saú Cozinha, a qualidade das refeições e o atendimento têm sido excepcionais. A equipe é sempre atenciosa e pronta para atender nossas necessidades."',
+        text: '"Desde quando contratamos a Saú Cozinha, a qualidade das refeições e o atendimento têm sido excepcionais. A equipe é sempre atenciosa e pronta para atender nossas necessidades."',
         name: 'Flavia Joviana',
         company: 'F Figueiredo Coordenação e Gestão',
         initial: 'F',

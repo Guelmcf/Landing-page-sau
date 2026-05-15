@@ -103,7 +103,7 @@ function Cardapio() {
                 </div>
 
                 <div className="cd-linha cd-linha--destaque">
-                    <span className="cd-linha-recomendada">Recomendada B2B</span>
+                    <span className="cd-linha-recomendada">Recomendada</span>
                     <div className="cd-linha-header">
                         <span className="cd-linha-tag cd-linha-tag--reforcada">Recomendada</span>
                         <h3 className="cd-linha-nome">Linha Reforçada</h3>
