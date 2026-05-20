@@ -17,9 +17,9 @@ const semanas: Semana[] = [
         label: 'Semana 1',
         dias: [
             { dia: 'Segunda', proteina: 'Frango Grelhado',  guarnicoes: 'Legumes + Farofa' },
-            { dia: 'Terça',   proteina: 'Carne Moída',      guarnicoes: 'Purê de Batata + Cenoura' },
-            { dia: 'Quarta',  proteina: 'Frango ao Molho',  guarnicoes: 'Polenta + Legumes' },
-            { dia: 'Quinta',  proteina: 'Pernil Grelhado',  guarnicoes: 'Abobrinha + Farofa' },
+            { dia: 'Terça',   proteina: 'Carne Moída',      guarnicoes: 'Purê de Batata + Legumes' },
+            { dia: 'Quarta',  proteina: 'Sobrecoxa ao Molho',  guarnicoes: 'Polenta + Legumes' },
+            { dia: 'Quinta',  proteina: 'Pernil Grelhado',  guarnicoes: 'Fritas + Farofa' },
             { dia: 'Sexta',   proteina: 'Frango Empanado',  guarnicoes: 'Farofa + Fritas' },
         ],
     },
@@ -27,17 +27,17 @@ const semanas: Semana[] = [
         label: 'Semana 2',
         dias: [
             { dia: 'Segunda', proteina: 'Pernil ao Molho',        guarnicoes: 'Batata + Legumes' },
-            { dia: 'Terça',   proteina: 'Frango Curry',            guarnicoes: 'Legumes + Farofa' },
-            { dia: 'Quarta',  proteina: 'Almôndegas Bovinas',      guarnicoes: 'Macarrão + Legumes' },
+            { dia: 'Terça',   proteina: 'Almôndegas Bovinas',            guarnicoes: 'Macarrão + Legumes' },
+            { dia: 'Quarta',  proteina: 'Sobrecoxa Assada',      guarnicoes: 'Legumes + Farofa' },
             { dia: 'Quinta',  proteina: 'Paleta Suína Acebolada',  guarnicoes: 'Cenoura/Vagem + Purê' },
-            { dia: 'Sexta',   proteina: 'Frango Grelhado',         guarnicoes: 'Farofa + Vinagrete' },
+            { dia: 'Sexta',   proteina: 'Frango Grelhado',         guarnicoes: 'Farofa + Fritas' },
         ],
     },
     {
         label: 'Semana 3',
         dias: [
             { dia: 'Segunda', proteina: 'Frango ao Molho',  guarnicoes: 'Purê de Batata + Legumes' },
-            { dia: 'Terça',   proteina: 'Costelinha Suína', guarnicoes: 'Legumes + Farofa' },
+            { dia: 'Terça',   proteina: 'Linguiça de Pernil', guarnicoes: 'Legumes + Farofa' },
             { dia: 'Quarta',  proteina: 'Frango Grelhado',  guarnicoes: 'Macarrão + Legumes' },
             { dia: 'Quinta',  proteina: 'Carne Moída',      guarnicoes: 'Abobrinha + Polenta' },
             { dia: 'Sexta',   proteina: 'Frango Empanado',  guarnicoes: 'Farofa + Fritas' },
@@ -66,7 +66,7 @@ function Cardapio() {
                 Refeições para a sua empresa
             </p>
             <p className="cd-subtitulo" data-reveal data-reveal-delay="100">
-                Cardápio quinzenal rotativo com duas linhas de produto e preços por volume.
+                Cardápio rotativo com duas linhas de produto e preços por volume.
                 Tudo que sua equipe precisa, entregue com regularidade.
             </p>
 
@@ -74,7 +74,7 @@ function Cardapio() {
             <div className="cd-rotativo" data-reveal data-reveal-delay="100">
                 <span className="cd-rotativo-icon" aria-hidden="true">↻</span>
                 <p className="cd-rotativo-texto">
-                    Cardápio quinzenal rotativo — a cada quinzena de dias úteis os pratos se renovam,
+                    Cardápio rotativo — a cada 3 semanas úteis os pratos se renovam,
                     garantindo variedade para sua equipe ao longo do mês. Nos finais de semana, o
                     cliente escolhe entre os pratos da semana em vigor.
                 </p>
@@ -88,8 +88,8 @@ function Cardapio() {
                         <span className="cd-linha-tag cd-linha-tag--padrao">Custo-benefício</span>
                         <h3 className="cd-linha-nome">Linha Padrão</h3>
                         <p className="cd-linha-desc">
-                            Opção ideal para empresas que buscam
-                            praticidade sem abrir mão da qualidade.
+                        Refeição equilibrada, ideal para equipes administrativas e ambientes de escritório. 
+                        Mesma qualidade, porção ajustada para o dia a dia mais leve.
                         </p>
                     </div>
                     <ul className="cd-linha-itens">
@@ -108,9 +108,8 @@ function Cardapio() {
                         <span className="cd-linha-tag cd-linha-tag--reforcada">Recomendada</span>
                         <h3 className="cd-linha-nome">Linha Reforçada</h3>
                         <p className="cd-linha-desc">
-                            Opção indicada para equipes que buscam robustez e sustancia
-                            a cada refeição
-                            .
+                        Refeição mais robusta, ideal para equipes operacionais, turnos longos ou trabalho que exige energia. 
+                        Sustenta a tarde inteira sem aquela fome das 15h.
                         </p>
                     </div>
                     <ul className="cd-linha-itens">
