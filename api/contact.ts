@@ -6,9 +6,10 @@ export default async function handler(req: any, res: any) {
     const serviceId  = process.env.EMAILJS_SERVICE_ID
     const templateId = process.env.EMAILJS_TEMPLATE_ID
     const publicKey  = process.env.EMAILJS_PUBLIC_KEY
+    const privateKey = process.env.EMAILJS_PRIVATE_KEY
 
-    if (!serviceId || !templateId || !publicKey) {
-        const missing = ['EMAILJS_SERVICE_ID', 'EMAILJS_TEMPLATE_ID', 'EMAILJS_PUBLIC_KEY']
+    if (!serviceId || !templateId || !publicKey || !privateKey) {
+        const missing = ['EMAILJS_SERVICE_ID', 'EMAILJS_TEMPLATE_ID', 'EMAILJS_PUBLIC_KEY', 'EMAILJS_PRIVATE_KEY']
             .filter(k => !process.env[k])
         return res.status(500).json({ error: 'Missing env vars', missing })
     }
@@ -23,6 +24,7 @@ export default async function handler(req: any, res: any) {
                 service_id:      serviceId,
                 template_id:     templateId,
                 user_id:         publicKey,
+                accessToken:     privateKey,
                 template_params: { nome, empresa, email, numero, numeroRefeicoes },
             }),
         })
