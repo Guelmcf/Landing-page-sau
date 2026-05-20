@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import './forms.css'
-import emailjs from '@emailjs/browser'
 
 type FormStatus = 'idle' | 'loading' | 'success' | 'error' | 'duplicate'
 
@@ -45,18 +44,6 @@ function Forms() {
         return e
     }
 
-    async function sendToSheets(data: Record<string, string>) {
-        const url = import.meta.env.VITE_GOOGLE_SHEETS_URL
-        if (!url) return
-        // no-cors + text/plain: avoids preflight and bypasses Apps Script's redirect CORS issue
-        await fetch(url, {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-            body: JSON.stringify({ ...data, data: new Date().toISOString() }),
-        })
-    }
-
     async function handleSubmit(e: React.FormEvent) {
         e.preventDefault()
 
@@ -73,29 +60,26 @@ function Forms() {
 
         setStatus('loading')
 
-        const data = {
-            nome:            name,
-            empresa:         company,
-            email:           email,
-            numero:          phone,
-            numeroRefeicoes: mealNumbers,
-        }
-
         try {
-            await emailjs.send(
-                import.meta.env.VITE_EMAILJS_SERVICE_ID,
-                import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-                data,
-                import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
-            )
+            const res = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    nome:            name,
+                    empresa:         company,
+                    email:           email,
+                    numero:          phone,
+                    numeroRefeicoes: mealNumbers,
+                }),
+            })
+
+            if (!res.ok) throw new Error('Request failed')
+
             localStorage.setItem('enviou', 'true')
             setStatus('success')
             setName(''); setCompany(''); setEmail(''); setPhone(''); setMealNumbers('')
-
-            // Fire-and-forget — Sheets failure doesn't affect the user
-            sendToSheets(data).catch(err => console.warn('Sheets error:', err))
         } catch (error) {
-            console.error('EmailJS error:', error)
+            console.error('Contact error:', error)
             setStatus('error')
         }
     }
