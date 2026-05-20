@@ -3,6 +3,16 @@ export default async function handler(req: any, res: any) {
         return res.status(405).json({ error: 'Method not allowed' })
     }
 
+    const serviceId  = process.env.EMAILJS_SERVICE_ID
+    const templateId = process.env.EMAILJS_TEMPLATE_ID
+    const publicKey  = process.env.EMAILJS_PUBLIC_KEY
+
+    if (!serviceId || !templateId || !publicKey) {
+        const missing = ['EMAILJS_SERVICE_ID', 'EMAILJS_TEMPLATE_ID', 'EMAILJS_PUBLIC_KEY']
+            .filter(k => !process.env[k])
+        return res.status(500).json({ error: 'Missing env vars', missing })
+    }
+
     const { nome, empresa, email, numero, numeroRefeicoes } = req.body as Record<string, string>
 
     try {
@@ -10,15 +20,16 @@ export default async function handler(req: any, res: any) {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                service_id:      process.env.EMAILJS_SERVICE_ID,
-                template_id:     process.env.EMAILJS_TEMPLATE_ID,
-                user_id:         process.env.EMAILJS_PUBLIC_KEY,
+                service_id:      serviceId,
+                template_id:     templateId,
+                user_id:         publicKey,
                 template_params: { nome, empresa, email, numero, numeroRefeicoes },
             }),
         })
 
         if (!emailRes.ok) {
-            return res.status(502).json({ error: 'Email failed' })
+            const detail = await emailRes.text()
+            return res.status(502).json({ error: 'Email failed', detail })
         }
     } catch {
         return res.status(500).json({ error: 'Internal server error' })
